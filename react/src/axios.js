@@ -2,11 +2,11 @@ import axios from "axios";
 import router from './router';
 
 const axiosClient = axios.create({
-  baseURL : `${import.meta.env.VITE_API_BASE_URL}/api`
+  baseURL : `${import.meta.env.VITE_API_BASE_URL}/api`,
 });
 
 axiosClient.interceptors.request.use((config) => {
-  const token = '123'; //TODO LATER
+  const token = ''; //TODO LATER
   config.headers.Authorization = `Bearer ${token}`
   return config;
 });
@@ -20,7 +20,6 @@ axiosClient.interceptors.response.use(response => {
     return error ;
   }
   throw error;
-
-});
+})
 
 export default axiosClient;

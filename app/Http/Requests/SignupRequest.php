@@ -28,8 +28,13 @@ class SignupRequest extends FormRequest
             'password' => [
                 'required',
                 'confirmed',
-                Password::min(8)->mixedCase()->numbers()->symobls()
+                Password::min(8)->mixedCase()->numbers()->symbols()
             ]
         ];
+
+        return response()->json(['message' => 'User registered successfully']);
+
+
     }
+
 }

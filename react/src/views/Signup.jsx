@@ -1,42 +1,45 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import axiosClient from './../axios.js';
+import axiosClient from '../axios.js'
+import { userStateContext } from "../context/ContextProvider.jsx";
 
 export default function Signup() {
+
+
+
+
+  const { setCurrentUser , setUserToken} = userStateContext();
 
   const [fullName , setFullName] = useState('');
   const [email , setEmail] = useState('');
   const [password , setPassword] = useState('');
   const [passwordConfirmation , setPasswordConfirmation] = useState('');
-  const [ville , setVille] = useState('');
   const [error , setError] = useState({__html: ''});
 
 
   const onSubmit = (ev) => {
-    ev.prevenDefault();
+    ev.preventDefault();
     setError({__html : ''});
 
-
-
-    axiosClient
-      .post("/signup", {
+    axiosClient.post('/signup', {
       name : fullName ,
       email ,
       password  ,
-      ville ,
       password_confirmation : passwordConfirmation ,
     })
-    .then(({ data }) =>{
-      console.log( data);
-    })
-    .catch((error) => {
-      if (error.response) {
-        const finalErrors=  Object.values(error.response.data.errors).reduce((accum , next)=>[ ...accum , ...next ] , [])
-        console.log(finalErrors)
-        setError({__html : finalErrors.join('<br>')})
-      }
-      console.error(error)
-    });
+      .then(({ data }) =>{
+        setCurrentUser(data.user);
+        setUserToken(data.token);
+      })
+      .catch((error) => {
+        if (error.response) {
+          const finalErrors=  Object.values(error.response.data.errors).reduce((accum , next)=>[ ...accum , ...next ] , [])
+          console.log(finalErrors)
+          setError({__html : finalErrors.join('<br>')})
+        }
+        console.error(error)
+      });
+
   };
 
 
@@ -67,7 +70,7 @@ export default function Signup() {
       <label htmlFor="full-name" className="block text-sm font-medium leading-6 text-gray-900">
         Full Name
       </label>
-      {fullName}
+
       <div className="mt-2">
         <input
           id="full-name"
@@ -82,22 +85,6 @@ export default function Signup() {
       </div>
     </div>
 
-
-    <div>
-      <label htmlFor="ville" className="block text-sm font-medium leading-6 text-gray-900">
-        City
-      </label>
-      <div className="mt-2">
-        <input
-          id="ville"
-          name="ville"
-          type="text"
-          required
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          placeholder="Your City"
-          />
-      </div>
-    </div>
     <div>
       <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
         Email address
@@ -109,6 +96,9 @@ export default function Signup() {
           type="email"
           autoComplete="email"
           required
+          value={email}
+          onChange={ev => setEmail(ev.target.value)}
+
           className="block w-full rounded-md
             border-0 py-1.5 text-gray-900 shadow-sm ring-1
             ring-inset ring-gray-300 placeholder:text-gray-400
@@ -131,6 +121,9 @@ export default function Signup() {
           name="password"
           type="password"
           required
+          value={password}
+          onChange={ev => setPassword(ev.target.value)}
+
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           placeholder="Password"
           />
@@ -149,6 +142,9 @@ export default function Signup() {
           name="password_confirmation"
           type="password"
           required
+          value={passwordConfirmation}
+          onChange={ev => setPasswordConfirmation(ev.target.value)}
+
           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           placeholder="Confirm Your Password "
           />

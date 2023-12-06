@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import DefaultLayout from './components/DefaultLayout';
 import GuestLayouts from './components/GuestLayouts';
 import Dashboard from './views/Dashboard';
+import DonateBlood from './views/DonateBlood';
 import Login from './views/Login';
 import Signup from './views/Signup';
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
         path : '/',
         element : <Dashboard />
       },
+      {
+        path:'/donateblood',
+        element : <DonateBlood />
+      }
     ],
   },
   {

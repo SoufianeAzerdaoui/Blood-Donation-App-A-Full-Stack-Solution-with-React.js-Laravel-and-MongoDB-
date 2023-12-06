@@ -8,7 +8,7 @@ import { userStateContext } from '../context/ContextProvider';
 
 const navigation = [
   { name: 'Dashboard', to: '/' },
-  { name: 'Surveys', to: '/surveys' },
+  { name: 'To Donate Blood', to: '/DonateBlood' },
 ]
 
 
@@ -21,7 +21,7 @@ export default function DefaultLayout() {
 
   const { currentUser , userToken } =userStateContext();
 
-  
+
 
 
   const logout = (ev) => {
