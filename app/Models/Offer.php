@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Offer extends Model
 {
 
+    protected $collection = 'offers';
+
     protected $fillable = ['city', 'type', 'full_name', 'phone', 'description'];
     public $timestamps = true;
 

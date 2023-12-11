@@ -1,6 +1,46 @@
 import React, { useState } from "react";
-
+import axiosClient from "../axios.js";
 function DonateBlood() {
+
+  const [city , setCity ] = useState('')
+  const [type , setType ] = useState('')
+  const [full_name , setFull_name ] = useState('')
+  const [phone , setPhone ] = useState('')
+  const [description , setDescritpion ] = useState('')
+  const [email ,setEmail] = useState('')
+  const [error , setError] = useState({__html: ''});
+
+
+    const onSubmit = (ev) => {
+      ev.preventDefault();
+
+      axiosClient.post('/donateblood', {
+        full_name,
+        email,
+        city,
+        phone,
+      })
+        .then(({ data }) => {
+          console.log(data);
+          setFull_name('');
+          setEmail('');
+          setCity('');
+          setPhone('');
+        })
+        .catch((error) => {
+          if (error.response && error.response.data && error.response.data.errors) {
+            const finalErrors = Object.values(error.response.data.errors).reduce((accum, next) => [...accum, ...next], []);
+            console.log(finalErrors);
+            setError({ __html: finalErrors.join('<br>') });
+          } else {
+            console.error(error);
+          }
+        });
+
+
+    };
+
+
   const [currentStep, setCurrentStep] = useState(1);
 
   const nextStep = () => {
@@ -45,22 +85,43 @@ function DonateBlood() {
               Personal Information
             </h1>
 
+            {
+              error.__html && ( <div className="bg-red-500 rounded py-2 px-3 text-white"
+              dangerouslySetInnerHTML={error}
+              >
+              </div> )
+            }
+
+
+          <form
+            onSubmit={onSubmit}
+            method="post"
+            action="#"
+            >
+
             <div className="mt-4">
+
               <label className="text-sm leading-none text-gray-800">
                 Full Name
               </label>
               <input
                 type="text"
+                value={full_name}
+                onChange = {(ev)=>setFull_name(ev.target.value)}
                 className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
                 placeholder="Full Name"
               />
             </div>
+
+
             <div className="mt-4">
               <label className="text-sm leading-none text-gray-800">
                 Email address
               </label>
               <input
                 type="email"
+                value={email}
+                onChange = {(ev)=>setEmail(ev.target.value)}
                 className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
                 placeholder="Email address"
               />
@@ -70,11 +131,36 @@ function DonateBlood() {
                 Phone number
               </label>
               <input
+                value={phone}
+                onChange = {(ev)=>setPhone(ev.target.value)}
                 type="text"
                 className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
                 placeholder="0611223314"
               />
             </div>
+
+            <div className="mt-4">
+
+              <label className="text-sm leading-none text-gray-800">
+                City
+              </label>
+              <input
+                type="text"
+                value={city}
+                onChange = {(ev)=>setCity(ev.target.value)}
+                className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
+                placeholder="City"
+              />
+
+          </div>
+          <button
+            type="submit"
+            className="bg-gray-200 px-4 py-2 rounded text-gray-800"
+
+          >Submit
+
+          </button>
+          </form>
           </div>
         );
       case 2:
