@@ -41,7 +41,7 @@ export default function DefaultLayout() {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <i class="fa-solid fa-droplet text-white text-2xl"></i>
+                      <i className="fa-solid fa-droplet text-white text-2xl"></i>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">

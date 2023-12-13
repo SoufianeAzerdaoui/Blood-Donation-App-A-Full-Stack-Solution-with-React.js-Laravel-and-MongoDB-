@@ -146,4 +146,43 @@
 //     );
 // }
 
+
+
+
+
+
+
+
+
+
+
+
+////////////STEPS
+{/*<div class="bg-gray-100 py-12 flex flex-wrap items-center justify-center">
+
+          <div class="w-52 h-16 relative md:mt-0 mt-4">
+              <img src="https://i.ibb.co/DwNs7zG/Steps.png" alt="step1" class="w-full h-full" />
+                  <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
+                    <p class="w-full text-sm font-medium leading-4 text-white">Sign Up</p>
+                    <p class="w-full text-xs mt-1 leading-none text-white">description of step 1</p>
+          </div>
+          </div>
+          <div class="w-52 h-16 relative md:mt-0 mt-4">
+          <img src="https://i.ibb.co/wNZ4nzy/Steps2.png" alt="step2" class="w-full h-full" />
+          <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
+              <p class="w-full text-sm font-medium leading-4 text-indigo-800">About you</p>
+              <p class="w-full text-xs mt-1 leading-none text-indigo-800">Some info about you</p>
+          </div>
+      </div>
+      <div class="w-52 h-16 relative lg:mt-0 mt-4">
+                            <img src="https://i.ibb.co/XCdjrhm/Steps4.png" alt="step4" class="w-full h-full" />
+                            <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
+                                <p class="w-full text-sm font-medium leading-4 text-gray-700">Getting Started</p>
+                                <p class="w-full text-xs mt-1 leading-none text-gray-500">Resources to begin</p>
+                            </div>
+                        </div>
+
+
+</div>*/}
+
 // export default MyApp;

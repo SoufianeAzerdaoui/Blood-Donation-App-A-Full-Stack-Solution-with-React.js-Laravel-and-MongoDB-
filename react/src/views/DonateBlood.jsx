@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import axiosClient from "../axios.js";
-import HealthCheckForm from "./HealthCheckForm.jsx";
-
-
+import HealthCheckForm from '../views/HealthCheckForm'
 function DonateBlood() {
 
   const [city , setCity ] = useState('')
-  const [type , setType ] = useState('')
   const [full_name , setFull_name ] = useState('')
   const [phone , setPhone ] = useState('')
   const [description , setDescritpion ] = useState('')
@@ -18,7 +15,11 @@ function DonateBlood() {
   const [isSubList, setIsSubList] = useState(3);
 
 
-  const [bloodTypeOptions, setBloodTypeOptions] = useState({
+
+  const [currentStep, setCurrentStep] = useState(1);
+
+
+  const [type, setType] = useState({
 
     typeAPositive: false,
     typeANegative: false,
@@ -29,23 +30,22 @@ function DonateBlood() {
     typeOPositive: false,
     typeONegative: false,
 
-});
+  });
+
 
 
     const handleCheckboxChange = (checkboxName) => {
-      setBloodTypeOptions((prevOptions) => ({
+      setType((prevOptions) => ({
         ...prevOptions,
         [checkboxName]: !prevOptions[checkboxName],
       }));
     };
 
-    const handleSubmit = () => {
-      const selectedBloodTypes = Object.keys(bloodTypeOptions).filter(
-        (type) => bloodTypeOptions[type]
-      );
+    const selectedBloodTypes = Object.keys(type).filter(
+      (bloodType) => type[bloodType]
+    );
 
-      console.log('Selected Blood Types:', selectedBloodTypes);
-    };
+    console.log('Selected Blood Types:', selectedBloodTypes);
 
 
 
@@ -58,6 +58,8 @@ function DonateBlood() {
         email,
         city,
         phone,
+        type : selectedBloodTypes,
+        description,
       })
         .then(({ data }) => {
           console.log(data);
@@ -65,6 +67,19 @@ function DonateBlood() {
           setEmail('');
           setCity('');
           setPhone('');
+
+          setType({
+              typeAPositive: false,
+              typeANegative: false,
+              typeBPositive: false,
+              typeBNegative: false,
+              typeABPositive: false,
+              typeABNegative: false,
+              typeOPositive: false,
+              typeONegative: false,
+          });
+
+          setDescritpion('')
         })
         .catch((error) => {
           if (error.response && error.response.data && error.response.data.errors) {
@@ -76,17 +91,10 @@ function DonateBlood() {
           }
         });
 
-        const selectedBloodTypes = Object.keys(bloodTypeOptions).filter(
-          (type) => bloodTypeOptions[type]
-        );
-
-        console.log('Selected Blood Types:', selectedBloodTypes);
-
     };
 
 
 
-  const [currentStep, setCurrentStep] = useState(1);
 
   const nextStep = () => {
     setCurrentStep(currentStep + 1);
@@ -102,47 +110,28 @@ function DonateBlood() {
         return (
           <div>
           {/*steps*/}
-          <div class="bg-gray-100 py-12 flex flex-wrap items-center justify-center">
 
-          <div class="w-52 h-16 relative md:mt-0 mt-4">
-              <img src="https://i.ibb.co/DwNs7zG/Steps.png" alt="step1" class="w-full h-full" />
-                  <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
-                    <p class="w-full text-sm font-medium leading-4 text-white">Sign Up</p>
-                    <p class="w-full text-xs mt-1 leading-none text-white">description of step 1</p>
-          </div>
-          </div>
-          <div class="w-52 h-16 relative md:mt-0 mt-4">
-          <img src="https://i.ibb.co/wNZ4nzy/Steps2.png" alt="step2" class="w-full h-full" />
-          <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
-              <p class="w-full text-sm font-medium leading-4 text-indigo-800">About you</p>
-              <p class="w-full text-xs mt-1 leading-none text-indigo-800">Some info about you</p>
-          </div>
-      </div>
-      <div class="w-52 h-16 relative lg:mt-0 mt-4">
-                            <img src="https://i.ibb.co/XCdjrhm/Steps4.png" alt="step4" class="w-full h-full" />
-                            <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
-                                <p class="w-full text-sm font-medium leading-4 text-gray-700">Getting Started</p>
-                                <p class="w-full text-xs mt-1 leading-none text-gray-500">Resources to begin</p>
-                            </div>
-                        </div>
-      </div>
+
+
+          {
+            error.__html && ( <div className="bg-red-500 rounded py-2 px-3 text-white "
+            dangerouslySetInnerHTML={error}
+            >
+            </div> )
+          }
+
             <h1 className="text-xl font-medium pr-2 leading-5 text-gray-800">
               Personal Information
             </h1>
 
-            {
-              error.__html && ( <div className="bg-red-500 rounded py-2 px-3 text-white"
-              dangerouslySetInnerHTML={error}
-              >
-              </div> )
-            }
+
 
 
           <form
             onSubmit={onSubmit}
             method="post"
             action="#"
-            >
+          >
 
             <div className="mt-4">
 
@@ -257,8 +246,9 @@ function DonateBlood() {
                                           type="checkbox"
                                           name="type"
                                           className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                          checked={bloodTypeOptions.typeAPositive}
+                                          checked={type.typeAPositive}
                                           onChange={() => handleCheckboxChange('typeAPositive')}
+
 
                                     />
                                       <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
@@ -276,7 +266,7 @@ function DonateBlood() {
                                   <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
                                       <input type="checkbox"
                                         className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                        checked={bloodTypeOptions.typeANegative}
+                                        checked={type.typeANegative}
                                         onChange={() => handleCheckboxChange('typeANegative')}
                                         name="type"
 
@@ -314,13 +304,14 @@ function DonateBlood() {
                       </div>
                       {isSubList === 2 && (
                           <div className="pl-8 pt-5">
+
                               <div className="flex items-center justify-between">
                                   <div className="pl-4 flex items-center">
                                       <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
                                           <input
                                             type="checkbox"
                                             className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                            checked={bloodTypeOptions.typeBPositive}
+                                            checked={type.typeBPositive}
                                             onChange={() => handleCheckboxChange('typeBPositive')}
                                             name="type"
                                           />
@@ -334,13 +325,14 @@ function DonateBlood() {
                                       <p className="text-sm leading-normal ml-2 text-gray-800">B+</p>
                                   </div>
                               </div>
+
                               <div className="flex pt-4 items-center justify-between">
                                   <div className="pl-4 flex items-center">
                                       <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
                                           <input
                                             type="checkbox"
                                             className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                            checked={bloodTypeOptions.typeBNegative}
+                                            checked={type.typeBNegative}
                                             onChange={() => handleCheckboxChange('typeBNegative')}
                                             name="type"
                                           />
@@ -380,13 +372,14 @@ function DonateBlood() {
                       </div>
                       {isSubList === 2 && (
                           <div className="pl-8 pt-5">
+
                               <div className="flex items-center justify-between">
                                   <div className="pl-4 flex items-center">
                                       <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
                                           <input
                                             type="checkbox"
                                             className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                            checked={bloodTypeOptions.typeABPositive}
+                                            checked={type.typeABPositive}
                                             onChange={() => handleCheckboxChange('typeABPositive')}
                                             name="type"
                                           />
@@ -400,13 +393,14 @@ function DonateBlood() {
                                       <p className="text-sm leading-normal ml-2 text-gray-800">AB+</p>
                                   </div>
                               </div>
+
                               <div className="flex pt-4 items-center justify-between">
                                   <div className="pl-4 flex items-center">
                                       <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
                                           <input
                                             type="checkbox"
                                             className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                            checked={bloodTypeOptions.typeABNegative}
+                                            checked={type.typeABNegative}
                                             onChange={() => handleCheckboxChange('typeABNegative')}
                                             name="type"
                                           />
@@ -420,6 +414,7 @@ function DonateBlood() {
                                       <p className="text-sm leading-normal ml-2 text-gray-800">AB-</p>
                                   </div>
                               </div>
+
                           </div>
                       )}
                   </div>
@@ -453,7 +448,7 @@ function DonateBlood() {
                                           <input
                                             type="checkbox"
                                             className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                            checked={bloodTypeOptions.typeOPositive}
+                                            checked={type.typeOPositive}
                                             onChange={() => handleCheckboxChange('typeOPositive')}
                                             name="type"
                                           />
@@ -473,8 +468,8 @@ function DonateBlood() {
                                           <input
                                             type="checkbox"
                                             className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                            checked={bloodTypeOptions.typeOPositive}
-                                            onChange={() => handleCheckboxChange('typeOPositive')}
+                                            checked={type.typeONegative}
+                                            onChange={() => handleCheckboxChange('typeONegative')}
                                             name="type"
                                           />
                                           <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
@@ -484,7 +479,7 @@ function DonateBlood() {
                                               </svg>
                                           </div>
                                       </div>
-                                      <p className="text-sm leading-normal ml-2 text-gray-800">O -</p>
+                                      <p className="text-sm leading-normal ml-2 text-gray-800">O-</p>
                                   </div>
                               </div>
                           </div>
@@ -503,19 +498,20 @@ function DonateBlood() {
 
       <br/>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl">
 
-          <label className="text-sm leading-none text-gray-800 mb-4 pb-5">
-            Descritpion About yourself <span className=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"> (Optional) </span> <br/>
+          <label className="text-sm leading-none text-black  ">
+            Descritpion About yourself <span className=" mb-2 text-sm font-medium text-black dark:text-black"> (Optional) </span> <br/>
           </label>
 
           <textarea
             id="message"
+            name='description'
             value={description}
             onChange ={(ev)=>setDescritpion(ev.target.value)}
             rows="4"
-            className="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Your message..."
+            className=" w-full text-sm text-black-900 bg-transparent rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:placeholder-black dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Your message......"
           >
           </textarea>
         </div>
@@ -525,7 +521,6 @@ function DonateBlood() {
           className="bg-gray-200 px-4 py-2 rounded text-gray-800"
         >Submit
         </button>
-
       </form>
 
     </div>
@@ -570,25 +565,27 @@ function DonateBlood() {
             <div className="lg:w-3/4 xl:px-24">
               {renderForm()}
             </div>
-            <div className="lg:w-1/4">
-              {/* Navigation buttons */}
-              {currentStep > 1 && (
-                <button
-                  onClick={prevStep}
-                  className="bg-gray-200 px-4 py-2 rounded text-gray-800"
-                >
-                  Previous
-                </button>
-              )}
-              {currentStep < 3 && (
-                <button
-                  onClick={nextStep}
-                  className="bg-indigo-600 px-4 py-2 rounded text-white ml-4"
-                >
-                  Next
-                </button>
-              )}
-            </div>
+          <div className="lg:w-1/4">
+            {/* Navigation buttons */}
+            {currentStep > 1 && (
+              <button
+                onClick={prevStep}
+                className="bg-gray-200 px-4 py-2 rounded text-gray-800"
+              >
+                Previous
+              </button>
+            )}
+            {currentStep < 3 && (
+              <button
+                type="submit"
+                onClick={nextStep}
+                className="bg-red-500 px-4 py-2 rounded text-white ml-4"
+              >
+                Next
+              </button>
+            )
+          }
+          </div>
           </div>
         </div>
       </div>

@@ -3,15 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
+// use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 class Offer extends Model
 {
 
     protected $collection = 'offers';
 
-    protected $fillable = ['city', 'type', 'full_name', 'phone', 'description'];
+    protected $fillable = ['city', 'type', 'full_name', 'phone', 'email' ,'description'];
     public $timestamps = true;
+
+    protected $casts = [
+        'type' => 'array',
+    ];
+
 
     use HasFactory;
 

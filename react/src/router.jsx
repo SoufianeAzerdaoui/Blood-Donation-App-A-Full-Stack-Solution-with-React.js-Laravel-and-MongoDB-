@@ -27,13 +27,10 @@ const router = createBrowserRouter([
         element : <DonateBlood />
       },
       {
-        path:'/healthCheckform',
+        path:'/healthcheckform',
         element : <HealthCheckForm />
       },
-      {
-        path:'/donateblood',
-        element : <DonateBlood />
-      }
+
     ],
   },
   {

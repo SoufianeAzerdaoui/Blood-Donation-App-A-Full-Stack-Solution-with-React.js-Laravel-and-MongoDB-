@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Health_check;
 
 
 /*
@@ -26,3 +27,7 @@ Route::post('/signup' , [AuthController::class , 'signup']);
 Route::post('/login' , [AuthController::class , 'login']);
 
 Route::post('/donateblood', [OfferController::class, 'donateblood']);
+
+Route::post('/healthcheck', [Health_check::class, 'healthcheck']);
+
+

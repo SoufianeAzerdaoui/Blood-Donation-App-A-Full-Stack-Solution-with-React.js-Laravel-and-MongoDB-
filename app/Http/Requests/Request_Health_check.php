@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BonatebloodRequest extends FormRequest
+class Request_Health_check extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,7 @@ class BonatebloodRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'full_name' => 'required|string',
-            'city' => 'required|string',
-            'phone' => 'required|string',
-            'email'=> 'required|email|string|unique:offers,email',
-            'description' => 'nullable|string',
-            'type' => 'required|array',
+            'situation' => 'required|array',
         ];
     }
 }
