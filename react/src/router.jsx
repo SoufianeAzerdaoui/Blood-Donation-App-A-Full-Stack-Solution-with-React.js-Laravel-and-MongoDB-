@@ -5,6 +5,7 @@ import Dashboard from './views/Dashboard';
 import DonateBlood from './views/DonateBlood';
 import Login from './views/Login';
 import Signup from './views/Signup';
+import HealthCheckForm from './views/HealthCheckForm';
 
 const router = createBrowserRouter([
 
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
       {
         path : '/',
         element : <Dashboard />
+      },
+      {
+        path:'/donateblood',
+        element : <DonateBlood />
+      },
+      {
+        path:'/healthCheckform',
+        element : <HealthCheckForm />
       },
       {
         path:'/donateblood',

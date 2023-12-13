@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axiosClient from "../axios.js";
+import HealthCheckForm from "./HealthCheckForm.jsx";
+
+
 function DonateBlood() {
 
   const [city , setCity ] = useState('')
@@ -9,6 +12,42 @@ function DonateBlood() {
   const [description , setDescritpion ] = useState('')
   const [email ,setEmail] = useState('')
   const [error , setError] = useState({__html: ''});
+
+
+  const [isList, setIsList] = useState(false);
+  const [isSubList, setIsSubList] = useState(3);
+
+
+  const [bloodTypeOptions, setBloodTypeOptions] = useState({
+
+    typeAPositive: false,
+    typeANegative: false,
+    typeBPositive: false,
+    typeBNegative: false,
+    typeABPositive: false,
+    typeABNegative: false,
+    typeOPositive: false,
+    typeONegative: false,
+
+});
+
+
+    const handleCheckboxChange = (checkboxName) => {
+      setBloodTypeOptions((prevOptions) => ({
+        ...prevOptions,
+        [checkboxName]: !prevOptions[checkboxName],
+      }));
+    };
+
+    const handleSubmit = () => {
+      const selectedBloodTypes = Object.keys(bloodTypeOptions).filter(
+        (type) => bloodTypeOptions[type]
+      );
+
+      console.log('Selected Blood Types:', selectedBloodTypes);
+    };
+
+
 
 
     const onSubmit = (ev) => {
@@ -37,8 +76,14 @@ function DonateBlood() {
           }
         });
 
+        const selectedBloodTypes = Object.keys(bloodTypeOptions).filter(
+          (type) => bloodTypeOptions[type]
+        );
+
+        console.log('Selected Blood Types:', selectedBloodTypes);
 
     };
+
 
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -139,9 +184,9 @@ function DonateBlood() {
               />
             </div>
 
-            <div className="mt-4">
+            <div className="mt-5 ">
 
-              <label className="text-sm leading-none text-gray-800">
+              <label className="text-sm leading-none text-gray-800 m-">
                 City
               </label>
               <input
@@ -153,24 +198,346 @@ function DonateBlood() {
               />
 
           </div>
-          <button
-            type="submit"
-            className="bg-gray-200 px-4 py-2 rounded text-gray-800"
 
-          >Submit
+          <br/>
 
-          </button>
-          </form>
+
+          <div>
+          <label className="text-sm leading-none text-gray-800 mb-4 pb-5">
+          Choose You Blood Type <br/>
+          </label>
+          <br/>
+          <label className="text-sm leading-none text-gray-800 ">
+          </label>
+          <div onClick={() => setIsList(!isList)} className="w-64 p-4 shadow rounded bg-white text-sm font-medium leading-none text-gray-800 flex items-center justify-between cursor-pointer">
+              Blood Type
+              <div>
+                  {isList ? (
+                      <div>
+
+                      </div>
+                  ) : (
+                      <div>
+                          <svg width={10} height={6} viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.00016 5.33333L0.333496 0.666664H9.66683L5.00016 5.33333Z" fill="#1F2937" />
+                          </svg>
+                      </div>
+                  )}
+              </div>
           </div>
+          {isList && (
+              <div className="w-64 mt-2 p-4 bg-white shadow rounded">
+                  <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                          <svg onClick={() => setIsSubList(1)} width={12} height={12} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M4.5 3L7.5 6L4.5 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          <div className="pl-4 flex items-center">
+                              <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                  <input
+                                    name="type"
+                                    className="checkbox opacity-0 absolute cursor-pointer w-full h-full" />
+                                  <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                      <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                          <path stroke="none" d="M0 0h24v24H0z" />
+                                          <path d="M5 12l5 5l10 -10" />
+                                      </svg>
+                                  </div>
+                              </div>
+                              <p className="text-sm leading-normal ml-2 text-gray-800">Type A </p>
+                          </div>
+                      </div>
+                  </div>
+                  {isSubList === 1 && (
+                      <div className="pl-8 pt-5">
+                          <div className="flex items-center justify-between">
+                              <div className="pl-4 flex items-center">
+                                  <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                      <input
+                                          type="checkbox"
+                                          name="type"
+                                          className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                          checked={bloodTypeOptions.typeAPositive}
+                                          onChange={() => handleCheckboxChange('typeAPositive')}
+
+                                    />
+                                      <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                          <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" />
+                                              <path d="M5 12l5 5l10 -10" />
+                                          </svg>
+                                      </div>
+                                  </div>
+                                  <p className="text-sm leading-normal ml-2 text-gray-800">A+</p>
+                              </div>
+                          </div>
+                          <div className="flex pt-4 items-center justify-between">
+                              <div className="pl-4 flex items-center">
+                                  <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                      <input type="checkbox"
+                                        className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                        checked={bloodTypeOptions.typeANegative}
+                                        onChange={() => handleCheckboxChange('typeANegative')}
+                                        name="type"
+
+                                        />
+                                      <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                        <i className="fa-solid fa-droplet text-white text-xl"></i>
+                                      </div>
+                                  </div>
+                                  <p className="text-sm leading-normal ml-2 text-gray-800">A-</p>
+                              </div>
+                          </div>
+                      </div>
+                  )}
+
+
+                  <div>
+                      <div className="flex items-center justify-between mt-4">
+                          <div className="flex items-center">
+                              <svg onClick={() => setIsSubList(2)} width={12} height={12} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.5 3L7.5 6L4.5 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                              <div className="pl-4 flex items-center">
+                                  <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                      <input type="" className=" opacity-0 absolute cursor-pointer w-full h-full" />
+                                      <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                          <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" />
+                                              <path d="M5 12l5 5l10 -10" />
+                                          </svg>
+                                      </div>
+                                  </div>
+                                  <p className="text-sm leading-normal ml-2 text-gray-800">Type B</p>
+                              </div>
+                          </div>
+                      </div>
+                      {isSubList === 2 && (
+                          <div className="pl-8 pt-5">
+                              <div className="flex items-center justify-between">
+                                  <div className="pl-4 flex items-center">
+                                      <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                          <input
+                                            type="checkbox"
+                                            className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                            checked={bloodTypeOptions.typeBPositive}
+                                            onChange={() => handleCheckboxChange('typeBPositive')}
+                                            name="type"
+                                          />
+                                          <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                              <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" />
+                                                  <path d="M5 12l5 5l10 -10" />
+                                              </svg>
+                                          </div>
+                                      </div>
+                                      <p className="text-sm leading-normal ml-2 text-gray-800">B+</p>
+                                  </div>
+                              </div>
+                              <div className="flex pt-4 items-center justify-between">
+                                  <div className="pl-4 flex items-center">
+                                      <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                          <input
+                                            type="checkbox"
+                                            className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                            checked={bloodTypeOptions.typeBNegative}
+                                            onChange={() => handleCheckboxChange('typeBNegative')}
+                                            name="type"
+                                          />
+                                          <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                              <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" />
+                                                  <path d="M5 12l5 5l10 -10" />
+                                              </svg>
+                                          </div>
+                                      </div>
+                                      <p className="text-sm leading-normal ml-2 text-gray-800">B-</p>
+                                  </div>
+                              </div>
+                          </div>
+                      )}
+                  </div>
+
+                  <div>
+                      <div className="flex items-center justify-between mt-4">
+                          <div className="flex items-center">
+                              <svg onClick={() => setIsSubList(2)} width={12} height={12} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.5 3L7.5 6L4.5 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                              <div className="pl-4 flex items-center">
+                                  <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                      <input type="" className=" opacity-0 absolute cursor-pointer w-full h-full" />
+                                      <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                          <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" />
+                                              <path d="M5 12l5 5l10 -10" />
+                                          </svg>
+                                      </div>
+                                  </div>
+                                  <p className="text-sm leading-normal ml-2 text-gray-800">Type AB</p>
+                              </div>
+                          </div>
+                      </div>
+                      {isSubList === 2 && (
+                          <div className="pl-8 pt-5">
+                              <div className="flex items-center justify-between">
+                                  <div className="pl-4 flex items-center">
+                                      <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                          <input
+                                            type="checkbox"
+                                            className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                            checked={bloodTypeOptions.typeABPositive}
+                                            onChange={() => handleCheckboxChange('typeABPositive')}
+                                            name="type"
+                                          />
+                                          <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                              <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" />
+                                                  <path d="M5 12l5 5l10 -10" />
+                                              </svg>
+                                          </div>
+                                      </div>
+                                      <p className="text-sm leading-normal ml-2 text-gray-800">AB+</p>
+                                  </div>
+                              </div>
+                              <div className="flex pt-4 items-center justify-between">
+                                  <div className="pl-4 flex items-center">
+                                      <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                          <input
+                                            type="checkbox"
+                                            className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                            checked={bloodTypeOptions.typeABNegative}
+                                            onChange={() => handleCheckboxChange('typeABNegative')}
+                                            name="type"
+                                          />
+                                          <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                              <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" />
+                                                  <path d="M5 12l5 5l10 -10" />
+                                              </svg>
+                                          </div>
+                                      </div>
+                                      <p className="text-sm leading-normal ml-2 text-gray-800">AB-</p>
+                                  </div>
+                              </div>
+                          </div>
+                      )}
+                  </div>
+
+
+                  <div>
+                      <div className="flex items-center justify-between mt-4">
+                          <div className="flex items-center">
+                              <svg onClick={() => setIsSubList(3)} width={12} height={12} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.5 3L7.5 6L4.5 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                              <div className="pl-4 flex items-center">
+                                  <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                      <input type="checkbox" className="checkbox opacity-0 absolute cursor-pointer w-full h-full" />
+                                      <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                          <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" />
+                                              <path d="M5 12l5 5l10 -10" />
+                                          </svg>
+                                      </div>
+                                  </div>
+                                  <p className="text-sm leading-normal ml-2 text-gray-800">Type O</p>
+                              </div>
+                          </div>
+                      </div>
+                      {isSubList === 3 && (
+                          <div className="pl-8 pt-5">
+                              <div className="flex items-center justify-between">
+                                  <div className="pl-4 flex items-center">
+                                      <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                          <input
+                                            type="checkbox"
+                                            className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                            checked={bloodTypeOptions.typeOPositive}
+                                            onChange={() => handleCheckboxChange('typeOPositive')}
+                                            name="type"
+                                          />
+                                          <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                              <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" />
+                                                  <path d="M5 12l5 5l10 -10" />
+                                              </svg>
+                                          </div>
+                                      </div>
+                                      <p className="text-sm leading-normal ml-2 text-gray-800">O+</p>
+                                  </div>
+                              </div>
+                              <div className="flex pt-4 items-center justify-between">
+                                  <div className="pl-4 flex items-center">
+                                      <div className="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
+                                          <input
+                                            type="checkbox"
+                                            className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                                            checked={bloodTypeOptions.typeOPositive}
+                                            onChange={() => handleCheckboxChange('typeOPositive')}
+                                            name="type"
+                                          />
+                                          <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
+                                              <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" />
+                                                  <path d="M5 12l5 5l10 -10" />
+                                              </svg>
+                                          </div>
+                                      </div>
+                                      <p className="text-sm leading-normal ml-2 text-gray-800">O -</p>
+                                  </div>
+                              </div>
+                          </div>
+                      )}{" "}
+                  </div>
+              </div>
+          )}
+          <style>
+              {` .checkbox:checked + .check-icon {
+              display: flex;
+          }`}
+          </style>
+
+
+          </div>
+
+      <br/>
+
+        <div className="max-w-2xl mx-auto">
+
+          <label className="text-sm leading-none text-gray-800 mb-4 pb-5">
+            Descritpion About yourself <span className=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"> (Optional) </span> <br/>
+          </label>
+
+          <textarea
+            id="message"
+            value={description}
+            onChange ={(ev)=>setDescritpion(ev.target.value)}
+            rows="4"
+            className="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Your message..."
+          >
+          </textarea>
+        </div>
+            <br/>
+        <button
+          type="submit"
+          className="bg-gray-200 px-4 py-2 rounded text-gray-800"
+        >Submit
+        </button>
+
+      </form>
+
+    </div>
         );
       case 2:
         return (
           <div>
             <h1 className="text-xl font-medium pr-2 leading-5 text-indigo-800">
-              Blood Verification
+              HEALTH CHECK
             </h1>
             <div className="mt-4">
-              {/* Add your Step 2 form fields and content here */}
+                <HealthCheckForm />
             </div>
           </div>
         );
