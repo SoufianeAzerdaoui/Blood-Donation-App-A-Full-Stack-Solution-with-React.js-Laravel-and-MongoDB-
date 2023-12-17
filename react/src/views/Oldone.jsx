@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import axiosClient from "../axios.js";
 import { useNavigate } from 'react-router-dom';
+import HealthCheckForm from '../views/HealthCheckForm'
 
 
 
@@ -77,13 +78,12 @@ function DonateBlood() {
             setShowSuccessAlert(false);
             setSuccessAlertContent('');
             setCaseNumber(2);
-          }, 3000);
+          }, 2000);
           setShowSuccessAlert(true);
           setFull_name('');
           setEmail('');
           setCity('');
           setPhone('');
-          navigate ('/confirmationdonation')
 
           setType({
               typeAPositive: false,
@@ -124,7 +124,7 @@ function DonateBlood() {
 
   const renderForm = () => {
     switch (caseNumber) {
-      case 1:
+      case 2:
         return (
           <div>
 
@@ -574,17 +574,39 @@ function DonateBlood() {
           </textarea>
         </div>
             <br/>
-            <button
-              type="submit"
-              className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-red-400 hover:bg-red-300 hover:shadow-lg focus:outline-none"
-            >
-              Submit
-            </button>
-
+        <button
+          type="submit"
+          className="bg-gray-200 px-4 py-2 rounded text-gray-800"
+        >Submit
+        </button>
       </form>
 
+    </div>
+        );
+      case 1:
+        return (
+          <div>
+            <h1 className="text-xl font-medium pr-2 leading-5 text-indigo-800">
+              HEALTH CHECK
+            </h1>
+            <div className="mt-4">
+              <HealthCheckForm />
+            </div>
           </div>
         );
+      case 3:
+        return (
+          <div>
+            <h1 className="text-xl font-medium pr-2 leading-5 text-gray-700">
+              Confirm Your Donation
+            </h1>
+            <div className="mt-4">
+              {/* Add your Step 3 form fields and content here */}
+            </div>
+          </div>
+        );
+      default:
+        return null;
     }
   };
 

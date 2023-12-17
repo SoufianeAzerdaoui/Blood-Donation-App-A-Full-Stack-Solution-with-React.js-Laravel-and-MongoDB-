@@ -13,30 +13,33 @@ class Health_check extends Controller
     {
         $data = $request->validated();
 
-        try {
-
-            $offer = Offer::find($data['offer_id']);
-
-            if (!$offer) {
-                return response()->json(['message' => 'Offer not found'], 404);
-            }
-
-
-            $health_check = HealthCheck::create([
-                'situation' =>$data['situation'],
-                'offer_full_name' => $offer->full_name,
-            ]);
-
-            $health_check->save();
-
-
-            return response()->json(['message' => 'Success'], 200);
-
-        } catch (\Exception $e) {
-            \Log::error($e);
-
-            return response()->json(['message' => 'Internal Server Error'], 500);
+        if (!array_key_exists('offer_id', $data)) {
+            return response()->json(['message' => 'Offer ID is missing in the request'], 400);
         }
+
+
+        $offerModel = Offer::find($data['offer_id']);
+
+
+        if (!$offerModel) {
+            return response()->json(['message' => 'Offer not found'], 404);
+        }
+
+
+        $offerId = $offerModel->getKey();;
+        $offerFullName = $offerModel->full_name;
+
+        $health_check = HealthCheck::create([
+            'offer_id' => $offerId,
+            'offer_full_name' => $offerFullName,
+            'situation' =>$data['situation'],
+        ]);
+
+        $health_check->save();
+
+
+        return response()->json(['message' => 'Success'], 200);
+
     }
 
 

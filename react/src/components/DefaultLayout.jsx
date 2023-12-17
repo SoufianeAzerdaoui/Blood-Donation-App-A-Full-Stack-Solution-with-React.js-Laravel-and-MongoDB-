@@ -8,7 +8,8 @@ import { userStateContext } from '../context/ContextProvider';
 
 const navigation = [
   { name: 'Dashboard', to: '/' },
-  { name: 'To Donate Blood', to: '/DonateBlood' },
+  { name: 'Donate Blood', to: '/healthcheck' },
+  { name: 'Donations components', to: '/donations' },
 ]
 
 
@@ -102,7 +103,7 @@ export default function DefaultLayout() {
                   </div>
                   <div className="-mr-2 flex md:hidden">
                     {/* Mobile menu button */}
-                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-0.5" />
                       <span className="sr-only">Open main menu</span>
                       {open ? (
@@ -123,7 +124,7 @@ export default function DefaultLayout() {
                       as="a"
                       to={item.to }
                       className={({ isActive }) =>classNames(
-                        isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        isActive ? 'bg-white text-black' : 'text-gray-300 hover:bg-gray-300 hover:text-white',
                         'block rounded-md px-3 py-2 text-base font-medium'
                       )}
                     >
@@ -150,7 +151,7 @@ export default function DefaultLayout() {
                         as="a"
                         href="#"
                         onClick = {(ev) => logout(ev)}
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                        className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-300 hover:text-black"
                       >
                         Sign out
                       </Disclosure.Button>

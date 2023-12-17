@@ -12,7 +12,6 @@ class HealthCheck extends Model
     protected $collection = 'health_checks';
 
     protected $fillable = ['offer_id', 'offer_full_name', 'situation'];
-
     public $timestamps = true;
 
     public function offer()

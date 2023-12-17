@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate , BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DefaultLayout from './components/DefaultLayout';
 import GuestLayouts from './components/GuestLayouts';
 import Dashboard from './views/Dashboard';
@@ -6,7 +6,8 @@ import DonateBlood from './views/DonateBlood';
 import Login from './views/Login';
 import Signup from './views/Signup';
 import HealthCheckForm from './views/HealthCheckForm';
-
+import ConfirmationDonation from './views/ConfirmationDonation';
+import Donations from './views/Donations';
 const router = createBrowserRouter([
 
   {
@@ -23,13 +24,23 @@ const router = createBrowserRouter([
         element : <Dashboard />
       },
       {
+        path : '/healthcheck',
+        element : <HealthCheckForm/>,
+
+      },
+      {
         path:'/donateblood',
         element : <DonateBlood />
       },
       {
-        path:'/healthcheckform',
-        element : <HealthCheckForm />
+        path:'/confirmationdonation',
+        element : <ConfirmationDonation />
       },
+      {
+        path:'/donations',
+        element : <Donations />
+      }
+
 
     ],
   },
@@ -46,8 +57,10 @@ const router = createBrowserRouter([
         element : <Signup />
       },
     ]
-  }
-])
+  },
 
+
+
+])
 
 export default router;

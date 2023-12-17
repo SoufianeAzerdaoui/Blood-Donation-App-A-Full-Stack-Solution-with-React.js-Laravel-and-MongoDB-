@@ -62,8 +62,9 @@ class OfferController extends Controller
             'type' =>$data['type'],
         ]);
 
+        // return response()->json(['message' => 'Success', 'offer_id' => $offer->id], 200);
 
-        return response()->json(['message' => 'Success'], 200);
+        return response()->json(['message' => 'Success', 'offer_id' => $offer->id], 200);
 
     } catch (\Exception $e) {
         \Log::error($e);
