@@ -6,11 +6,17 @@ import { userStateContext } from '../context/ContextProvider';
 import { Link } from 'react-router-dom';
 
 
+
+
 const navigation = [
   { name: 'Acceuil', to: '/' },
   { name: 'Donate Blood', to: '/healthcheck' },
   { name: 'Find a donor', to: '/donations' },
+  { name: 'Process donations', to: '/' },
 ]
+
+
+
 
 
 
@@ -21,8 +27,6 @@ function classNames(...classes) {
 export default function DefaultLayout() {
 
   const { currentUser , userToken } =userStateContext();
-
-
 
 
   const logout = (ev) => {
@@ -59,6 +63,9 @@ export default function DefaultLayout() {
                               {item.name}
                           </NavLink>
                         ))}
+
+
+
                       </div>
                     </div>
                   </div>
