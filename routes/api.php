@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DonationsController;
 use App\Http\Controllers\OfferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +30,9 @@ Route::post('/login' , [AuthController::class , 'login']);
 Route::post('/donateblood', [OfferController::class, 'donateblood']);
 
 Route::post('/healthcheck', [Health_check::class, 'healthcheck']);
+
+// Route::get('/search/{city}', [DonationsController::class, 'search']);
+Route::get('/search/{city}', [OfferController::class, 'search']);
+
 
 

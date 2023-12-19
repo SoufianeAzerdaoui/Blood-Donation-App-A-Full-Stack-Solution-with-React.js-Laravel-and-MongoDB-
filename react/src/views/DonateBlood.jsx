@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import axiosClient from "../axios.js";
 import { useNavigate } from 'react-router-dom';
-
-
-
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 function DonateBlood() {
 
   const [city , setCity ] = useState('')
+  const [age , setAge] = useState('')
   const [full_name , setFull_name ] = useState('')
   const [phone , setPhone ] = useState('')
   const [description , setDescritpion ] = useState('')
   const [email ,setEmail] = useState('')
   const [error , setError] = useState({__html: ''});
+
 
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [successAlertContent, setSuccessAlertContent] = useState("");
@@ -45,6 +46,35 @@ function DonateBlood() {
 
 
 
+
+
+
+  const formattedBloodTypes = Object.keys(type)
+  .filter((bloodType) => type[bloodType])
+  .map((selectedType) => {
+    switch (selectedType) {
+      case 'typeAPositive':
+        return 'A+';
+      case 'typeANegative':
+        return 'A-';
+      case 'typeBPositive':
+        return 'B+';
+      case 'typeBNegative':
+        return 'B-';
+      case 'typeABPositive':
+        return 'AB+';
+      case 'typeABNegative':
+        return 'AB-';
+      case 'typeOPositive':
+        return 'O+';
+      case 'typeONegative':
+        return 'O-';
+      default:
+        return null;
+    }
+  });
+
+
     const handleCheckboxChange = (checkboxName) => {
       setType((prevOptions) => ({
         ...prevOptions,
@@ -52,22 +82,16 @@ function DonateBlood() {
       }));
     };
 
-    const selectedBloodTypes = Object.keys(type).filter(
-      (bloodType) => type[bloodType]
-    );
-
-    console.log('Selected Blood Types:', selectedBloodTypes);
-
 
     const onSubmit = (ev) => {
       ev.preventDefault();
-
       axiosClient.post('/donateblood', {
         full_name,
         email,
+        age,
         city,
         phone,
-        type : selectedBloodTypes,
+        type : formattedBloodTypes ,
         description,
       })
         .then(({ data }) => {
@@ -81,6 +105,7 @@ function DonateBlood() {
           setShowSuccessAlert(true);
           setFull_name('');
           setEmail('');
+          setAge('');
           setCity('');
           setPhone('');
           navigate ('/confirmationdonation')
@@ -109,9 +134,9 @@ function DonateBlood() {
           }
         });
 
-    };
 
 
+};
 
 
   const nextStep = () => {
@@ -191,19 +216,22 @@ function DonateBlood() {
             action="#"
           >
 
-            <div className="mt-4">
 
-              <label className="text-sm leading-none text-gray-800">
-                Full Name
-              </label>
+          <div className="mt-4 ">
+          <label className="text-sm leading-none text-gray-800">
+            Full Name
+          </label>
+          <div className="flex items-center">
               <input
                 type="text"
                 value={full_name}
-                onChange = {(ev)=>setFull_name(ev.target.value)}
-                className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
+                onChange={(ev) => setFull_name(ev.target.value)}
+                className="w-full p-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800 ml-2"
                 placeholder="Full Name"
               />
             </div>
+        </div>
+
 
 
             <div className="mt-4">
@@ -218,18 +246,35 @@ function DonateBlood() {
                 placeholder="Email address"
               />
             </div>
+
             <div className="mt-4">
               <label className="text-sm leading-none text-gray-800">
-                Phone number
+                Age
               </label>
               <input
-                value={phone}
-                onChange = {(ev)=>setPhone(ev.target.value)}
-                type="phone"
+                type="number"
+                value={age}
+                onChange = {(ev)=>setAge(ev.target.value)}
                 className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
-                placeholder="0611223314"
+                placeholder="Your Age"
               />
             </div>
+
+            <div className="mt-4">
+              <label className="text-sm leading-none text-gray-800">
+                Phone
+              </label>
+              <PhoneInput
+                value={phone}
+                onChange={setPhone}
+                defaultCountry="MA"
+                // onChange = {(ev) => setPhone(ev.target.value)}
+                className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
+                placeholder="Number Phone"
+
+              />
+            </div>
+
 
             <div className="mt-5 ">
 
@@ -261,7 +306,6 @@ function DonateBlood() {
               <div>
                   {isList ? (
                       <div>
-
                       </div>
                   ) : (
                       <div>
@@ -304,10 +348,7 @@ function DonateBlood() {
                                           type="checkbox"
                                           name="type"
                                           className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                                          checked={type.typeAPositive}
                                           onChange={() => handleCheckboxChange('typeAPositive')}
-
-
                                     />
                                       <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
                                           <svg className="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width={12} height={12} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">

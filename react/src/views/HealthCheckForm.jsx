@@ -124,7 +124,7 @@ const HealthCheckForm = () => {
 </div>
   <div className="min-h-screen flex items-center justify-center bg-gray-100 p-0 sm:p-12  ">
 
-      <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl  ">
+      <div className="mx-auto max-w-md px-8 py-12 bg-white border-0 shadow-lg sm:rounded-3xl  ">
         <h1 className="text-2xl font-bold mb-8 text-center">Health Check Form</h1>
 
         {
@@ -140,7 +140,7 @@ const HealthCheckForm = () => {
           method='post'
           onSubmit={onSubmit}
         >
-          <div className="space-y-4 f">
+          <div className="w-{200}  ">
 
 
             <div className="flex items-center justify-content pb-3 pl-8">
@@ -160,7 +160,6 @@ const HealthCheckForm = () => {
               <input
                     type="checkbox"
                     name='non'
-                    checked={checkboxData.respiratoires === 'non'}
                     onChange={() => handleCheckboxChange('respiratoires')}
                     required
                     className=" h-5 w-5 cursor-pointer appearance-none rounded-md border border-teal-gray-200

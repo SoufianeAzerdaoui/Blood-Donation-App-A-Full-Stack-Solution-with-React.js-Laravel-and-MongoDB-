@@ -15,6 +15,7 @@ return new class extends Migration
             $collection->index('_id');
             $collection->index('city');
             $collection->index('type');
+            $collection->int('age');
             $collection->string('full_name');
             $collection->string('phone');
             $collection->text('description');

@@ -3,13 +3,13 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon,UserCircleIcon , UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink , Outlet } from 'react-router-dom';
 import { userStateContext } from '../context/ContextProvider';
-
+import { Link } from 'react-router-dom';
 
 
 const navigation = [
-  { name: 'Dashboard', to: '/' },
+  { name: 'Acceuil', to: '/' },
   { name: 'Donate Blood', to: '/healthcheck' },
-  { name: 'Donations components', to: '/donations' },
+  { name: 'Find a donor', to: '/donations' },
 ]
 
 
@@ -42,7 +42,7 @@ export default function DefaultLayout() {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <i className="fa-solid fa-droplet text-white text-2xl"></i>
+                      <Link to='/' className="fa-solid fa-droplet text-white text-2xl"></Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
