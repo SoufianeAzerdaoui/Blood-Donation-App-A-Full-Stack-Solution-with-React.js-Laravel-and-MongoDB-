@@ -45,10 +45,6 @@ function DonateBlood() {
   });
 
 
-
-
-
-
   const formattedBloodTypes = Object.keys(type)
   .filter((bloodType) => type[bloodType])
   .map((selectedType) => {
@@ -98,7 +94,7 @@ function DonateBlood() {
           console.log(data);
           setSuccessAlertContent("Vous êtes Bien Enregistrer  Tu peux aller a l'etape suivant .");
           setTimeout(() => {
-            setShowSuccessAlert(false);
+            setShowSuccessAlert(true);
             setSuccessAlertContent('');
             setCaseNumber(2);
           }, 3000);

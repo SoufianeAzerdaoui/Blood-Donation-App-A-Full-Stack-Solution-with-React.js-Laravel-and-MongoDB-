@@ -1,9 +1,13 @@
 import React from 'react';
 import leandingpage from '../../images/leandingpage.png';
 import { Link } from 'react-router-dom';
+import BloodTypes from './BloodTypes';
+
+
 const LeandingPage = () => {
+  
   return (
-    <div>
+    <div className="">
         <div className="container mx-auto flex items-center justify-between p-8">
         <div className="text-section flex-1 pr-8">
           <h1 className="text-4xl font-bold mb-4">Donate Blood,</h1>
@@ -188,9 +192,23 @@ const LeandingPage = () => {
       </div>
       </div>
       </div>
-      </div>
-
     </div>
+
+
+
+
+
+
+
+
+
+
+
+      <>
+      <BloodTypes />
+    </>
+
+  </div>
   );
 }
 

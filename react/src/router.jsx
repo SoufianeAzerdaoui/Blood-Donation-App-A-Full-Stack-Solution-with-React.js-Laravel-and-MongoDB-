@@ -8,6 +8,7 @@ import Signup from './views/Signup';
 import HealthCheckForm from './views/HealthCheckForm';
 import ConfirmationDonation from './views/ConfirmationDonation';
 import Donations from './views/Donations';
+import BloodtypeA from './components/bloodinformation/BloodtypeA';
 const router = createBrowserRouter([
 
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path : '/information/typeA',
+    element :<BloodtypeA/>,
+  }
 
 
 
