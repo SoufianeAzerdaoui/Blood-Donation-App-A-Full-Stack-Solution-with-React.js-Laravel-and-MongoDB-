@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 const ConfirmationDonation = () => {
   return (
     <div>
-   
-
-
-
     <div class="flex items-center justify-center h-screen">
 
       <div class="p-1 rounded shadow-lg bg-gradient-to-r from-purple-500 via-green-500 to-blue-500">

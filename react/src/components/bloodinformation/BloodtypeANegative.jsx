@@ -1,54 +1,30 @@
-import React , {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import typeAgive from '../../../images/aaaaaaaaaaaaaaaaaaaaaaaaagive.png'
-import cx from 'classnames';
-
+import typeANetive from '../../../images/anegative.png'
 const BloodtypeA = () => {
-
-
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const toggleDropdown = () => {
-      setIsDropdownOpen(!isDropdownOpen);
-    };
-
-
   return (
     <div>
       <div className=''>
       <header className="bg-white  shadow">
-
-      <div className="mx-auto max-w-7xl px-5 py-4 sm:px-6 lg:px-8">
-        <ul className="flex">
-          <li className="mr-3">
-            <a
-              className="inline-block border
-                border-4 border-red-200 border-b-red-900 rounded py-4
-                px-5 bg-red-500 text-white
-                font-semibold"
-                href="#">
-              Informations About Blood Types
-            </a>
-          </li>
-        </ul>
-
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+          Dashboard
+        </h1>
       </div>
-
     </header>
-
-      <div className='flex'>
+    <div className='flex'>
         <Link to='/' className='text-red-700 pl-3 pr-1'>
             /Acceuil
         </Link>
-        <p className='text-gray-400'>/A positive blood type </p>
+        <p className='text-gray-400'>/A negative  blood type </p>
         </div>
       </div>
         <h3 className="flex items-center text-5xl font-semibold  pl-10 pt-6">
-            A positive blood type
+            A negative  blood type
 
             <span
               className="bg-blue-100 text-black-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-red-300 dark:text-black ms-2">
-                A+</span>
+                A-</span>
         </h3>
 
         <div  className='pl-10 pt-8'>
@@ -79,7 +55,8 @@ const BloodtypeA = () => {
           <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5 items-center '>
 
             <p className='text-gray-500 '>
-              Around 30% of donors have A positive blood, making it the second most common blood type after O positive (36%).
+              Around 8% of donors have A negative blood.
+              In comparison, 30% of donors have A positive blood.
             </p>
             <img
               src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvMzQwLWZlbGl4MTQwNy5qcGc.jpg"
@@ -102,16 +79,32 @@ const BloodtypeA = () => {
                 class="underline underline-offset-3 decoration-8
                 decoration-blue-400 dark:decoration-blue-600 pl-1"
               >
-              A positive blood?
+              A negative  blood?
               </span>
             </h3>
             <p class="text-lg font-bold text-gray-700 lg:text-xl dark:text-gray-700 pl-6 pt-5">
-              A positive and AB positive people
+            Group A and AB people
             </p>
+
+            <ul class="max-w-md ml-12 space-y-1 text-gray-700  pt-5 list-disc dark:text-gray-500">
+              <li>
+              A negative blood
+              </li>
+              <li>
+              A positive blood
+
+              </li>
+              <li>
+              AB positive blood
+              </li>
+              <li>
+              AB negative blood
+              </li>
+          </ul>
 
             <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5 items-center'>
             <img
-            src={typeAgive}
+            src={typeANetive}
             alt="agivetoab"
             className=' rounded-md duration-200 hover:scale-105  pl-10 pt-8  '
 

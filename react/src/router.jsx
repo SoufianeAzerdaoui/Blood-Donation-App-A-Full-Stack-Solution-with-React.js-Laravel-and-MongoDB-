@@ -8,7 +8,23 @@ import Signup from './views/Signup';
 import HealthCheckForm from './views/HealthCheckForm';
 import ConfirmationDonation from './views/ConfirmationDonation';
 import Donations from './views/Donations';
+
 import BloodtypeA from './components/bloodinformation/BloodtypeA';
+import BloodtypeANegative from './components/bloodinformation/BloodtypeANegative';
+
+import BloodtypeO from './components/bloodinformation/BloodtypeO';
+import BloodtypeONegative from './components/bloodinformation/BloodtypeONegative';
+
+import BloodtypeB from './components/bloodinformation/BloodtypeB';
+import BloodtypeBNegative from './components/bloodinformation/BloodtypeBNegative';
+
+import BloodtypeAB from './components/bloodinformation/BloodtypeAB';
+import BloodtypeABNegative from './components/bloodinformation/BloodtypeABNegative';
+
+
+
+
+
 const router = createBrowserRouter([
 
   {
@@ -40,7 +56,39 @@ const router = createBrowserRouter([
       {
         path:'/donations',
         element : <Donations />
-      }
+      },
+      {
+        path : '/information/typeA',
+        element :<BloodtypeA/>,
+      },
+      {
+        path : '/information/typeB',
+        element :<BloodtypeB/>,
+      },
+      {
+        path : '/information/typeAB',
+        element :<BloodtypeAB/>,
+      },
+      {
+        path : '/information/typeABnegative',
+        element :<BloodtypeABNegative/>,
+      },
+      {
+        path : '/information/BloodtypeBNegative',
+        element :<BloodtypeBNegative/>,
+      },
+      {
+        path : '/information/BloodtypeO',
+        element :<BloodtypeO/>,
+      },
+      {
+        path : '/information/BloodtypeONegative',
+        element :<BloodtypeONegative/>,
+      },
+      {
+        path : '/information/BloodtypeANegative',
+        element :<BloodtypeANegative/>,
+      },
 
 
     ],
@@ -57,12 +105,10 @@ const router = createBrowserRouter([
         path : '/signup',
         element : <Signup />
       },
+
     ]
   },
-  {
-    path : '/information/typeA',
-    element :<BloodtypeA/>,
-  }
+
 
 
 

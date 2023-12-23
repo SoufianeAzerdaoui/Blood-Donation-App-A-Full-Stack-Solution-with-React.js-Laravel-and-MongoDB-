@@ -5,7 +5,7 @@ import BloodTypes from './BloodTypes';
 
 
 const LeandingPage = () => {
-  
+
   return (
     <div className="">
         <div className="container mx-auto flex items-center justify-between p-8">
@@ -75,11 +75,7 @@ const LeandingPage = () => {
         <div className="flex justify-between w-full">
           <div>
             <div className="p-2">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round"
-                  d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-              </svg>
+
             </div>
           </div>
           <div>
@@ -92,8 +88,7 @@ const LeandingPage = () => {
             Health Check
           </div>
           <div className="font-semibold text-sm text-gray-500 py-4">
-            Lorem Ipsum is simply dummy text of the printing and pesetting
-            industry.
+          Our blood donation eligibility form is designed to ensure the safety and well-being of both donors and recipients.
           </div>
           <div>
             <Link to='/healthcheck' class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
@@ -170,12 +165,11 @@ const LeandingPage = () => {
       <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-green-300'>
         {/* ... (Repeat structure for other cards) */}
         <div>
-        <div className="font-bold text-3xl">
-          Health Check
-        </div>
+
         <div className="font-semibold text-sm text-gray-500 py-4">
-          Lorem Ipsum is simply dummy text of the printing and pesetting
-          industry.
+        Your generosity has the power to save lives. Take a  step towards making a positive impact by joining us in our mission to make a difference.
+        Give the gift of life by donating blood. Your act of kindness
+        can contribute to a healthier  community.
         </div>
         <div>
           <Link to='/healthcheck' class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
@@ -208,7 +202,8 @@ const LeandingPage = () => {
       <BloodTypes />
     </>
 
-  </div>
+
+    </div>
   );
 }
 

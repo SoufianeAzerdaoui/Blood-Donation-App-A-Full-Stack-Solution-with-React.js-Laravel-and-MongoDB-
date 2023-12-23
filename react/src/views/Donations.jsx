@@ -6,7 +6,6 @@ import axiosClient from "../axios"
 const Donations = () => {
 
 
- 
 
   const [city, setCity] = useState('');
   const [searchResults, setSearchResults] = useState([]);

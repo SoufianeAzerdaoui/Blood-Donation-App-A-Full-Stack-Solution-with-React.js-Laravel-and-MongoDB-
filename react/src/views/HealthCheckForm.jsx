@@ -11,7 +11,6 @@ const HealthCheckForm = () => {
     goût : 'non',
     covid : 'non',
     maladies : 'non',
-    goût : 'non',
   });
   const navigate = useNavigate();
 
