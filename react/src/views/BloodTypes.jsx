@@ -1,44 +1,24 @@
 import React from 'react';
-import typeA from '../../images/f1e6567e9c816602fd0d406b9e6f2417.jpg'
-import typeB from '../../images/BBBBBBBBBBBBBBB9f45493868fe7f0eff2a8.jpg'
-import typeO from '../../images/OOOOOOOOOOOOOOOOOOOOcf0f609dba0d82c85.jpg'
-import typeAB from '../../images/ABABABABABAABABABBA5fcdecfd3d6b.jpg'
+
+import typeA from '../../images/A+.jpg'
+import typeANegative from '../../images/a-.jpg'
+
+import typeB from '../../images/B+.jpg';
+import typeBNegative from '../../images/b-.jpg';
+
+
+
+import typeO from '../../images/o+.jpg'
+import typeONagative from '../../images/o-.jpg'
+
+import typeAB from '../../images/ab+.jpg';
+import typeABNegative from '../../images/ab-.jpg';
+
+
 import { Link } from 'react-router-dom';
 
 
 const BloodTypes = () => {
-  const items = [
-    {
-      id: 1,
-      src: typeA,
-      link: 'link here',
-    },
-    {
-      id: 2,
-      src: typeB,
-      link: 'link here',
-    },
-    {
-      id: 3,
-      src: typeO,
-      link: 'link here',
-    },
-    {
-      id: 4,
-      src: typeAB,
-      link: 'link here',
-    },
-    {
-      id: 5,
-      src: typeAB,
-      link: 'link here',
-    },
-    {
-      id: 6,
-      src: typeAB,
-      link: 'link here',
-    },
-  ];
 
 
   return (
@@ -89,8 +69,13 @@ const BloodTypes = () => {
 
       <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
       <div
+
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md
+              shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+              rounded-lg overflow-hidden
+            '
+
           >
             <img
               src={typeA}
@@ -106,14 +91,18 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read More About Type A</span>
             </Link>
 
             </div>
       </div>
       <div
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md
+            shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+
+            rounded-lg
+            overflow-hidden'
           >
             <img
               src={typeB}
@@ -129,14 +118,15 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read more about B+</span>
             </Link>
 
             </div>
       </div>
       <div
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md               shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+            rounded-lg overflow-hidden'
           >
             <img
               src={typeAB}
@@ -152,17 +142,18 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read more About AB+</span>
             </Link>
 
             </div>
       </div>
       <div
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md               shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+            rounded-lg overflow-hidden'
           >
             <img
-              src={typeAB}
+              src={typeABNegative}
               alt=''
               className='rounded-md duration-200 hover:scale-105'
             />
@@ -175,17 +166,18 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read more About AB-</span>
             </Link>
 
             </div>
       </div>
       <div
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md               shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+            rounded-lg overflow-hidden'
           >
             <img
-              src={typeB}
+              src={typeBNegative}
               alt=''
               className='rounded-md duration-200 hover:scale-105'
             />
@@ -198,14 +190,15 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read more about B-</span>
             </Link>
 
             </div>
       </div>
       <div
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md               shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+            rounded-lg overflow-hidden'
           >
             <img
               src={typeO}
@@ -221,17 +214,18 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read more about O+</span>
             </Link>
 
             </div>
       </div>
       <div
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md               shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+            rounded-lg overflow-hidden'
           >
             <img
-              src={typeO}
+              src={typeONagative}
               alt=''
               className='rounded-md duration-200 hover:scale-105'
             />
@@ -244,17 +238,19 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read more about O-</span>
             </Link>
 
             </div>
       </div>
       <div
             key=''
-            className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+            className='shadow-md
+            shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]
+            rounded-lg overflow-hidden'
           >
             <img
-              src={typeA}
+              src={typeANegative}
               alt=''
               className='rounded-md duration-200 hover:scale-105'
             />
@@ -267,7 +263,7 @@ const BloodTypes = () => {
               <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
               <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Explore</span>
+              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Read More About Type A -</span>
             </Link>
 
             </div>

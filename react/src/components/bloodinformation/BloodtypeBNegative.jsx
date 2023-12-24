@@ -7,21 +7,34 @@ import typeBNegative from '../../../images/negativeofBBBb.png'
 const BloodtypeA = () => {
   return (
     <div>
-      <div className='flex'>
+      <div className=''>
       <header className="bg-white  shadow">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-          Dashboard
-        </h1>
+
+      <div className="mx-auto max-w-7xl px-5 py-4 sm:px-6 lg:px-8">
+        <ul className="flex">
+          <li className="mr-3">
+            <a
+              className="inline-block border
+                border-4 border-red-200 border-b-red-900 rounded py-4
+                px-5 bg-red-500 text-white
+                font-semibold"
+                href="#">
+              Informations About Blood Types
+            </a>
+          </li>
+        </ul>
+
       </div>
+
     </header>
+
+
+      </div>
       <div className='flex'>
           <Link to='/' className='text-red-700 pl-3 pr-1'>
             /Acceuil
           </Link>
           <p className='text-gray-400'>/B negative blood type </p>
-      </div>
-
       </div>
         <h3 className="flex items-center text-5xl font-semibold  pl-10 pt-6">
           B negative blood type
