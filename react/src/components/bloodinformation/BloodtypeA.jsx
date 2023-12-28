@@ -1,9 +1,11 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import typeAgive from '../../../images/aaaaaaaaaaaaaaaaaaaaaaaaagive.png'
-import cx from 'classnames';
+import { motion, useScroll } from "framer-motion"
 
 const BloodtypeA = () => {
+
+  const { scrollYProgress } = useScroll();
 
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -13,9 +15,12 @@ const BloodtypeA = () => {
     };
 
 
+
+
   return (
     <div>
       <div className=''>
+
       <header className="bg-white  shadow">
 
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-6 lg:px-8">
@@ -35,6 +40,10 @@ const BloodtypeA = () => {
       </div>
 
     </header>
+
+
+
+    <motion.div style={{ scaleX: scrollYProgress }} />
 
       <div className='flex'>
         <Link to='/' className='text-red-700 pl-3 pr-1'>

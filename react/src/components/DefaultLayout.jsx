@@ -168,7 +168,9 @@ export default function DefaultLayout() {
             </>
           )}
         </Disclosure>
+
         <Outlet />
+
 
       </div>
     </>

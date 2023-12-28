@@ -3,19 +3,30 @@ import leandingpage from '../../images/leandingpage.png';
 import { Link } from 'react-router-dom';
 import BloodTypes from './BloodTypes';
 import './Leandingpage.css';
+import './Donations.css';
+import { MDBBtn, MDBContainer } from 'mdb-react-ui-kit';
+import { motion, useScroll } from "framer-motion"
+
 
 const LeandingPage = () => {
+  const { scrollYProgress } = useScroll()
 
   return (
 
     <div class=" ">
 
+    <motion.path
+        d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
+        style={{ pathLength: scrollYProgress }}
+    />
 
   <div className='' >
+
 		</div>
+
         <div className="container mx-auto flex items-center justify-between p-8 pl-[8rem]">
         <div className="text-section flex-1 pr-8">
-          <h1 className="text-4xl font-bold mb-4">Donate Blood,</h1>
+          <h1 className="text-4xl font-bold mb-4 donate-blood">Donate Blood,</h1>
           <h1 className="text-4xl font-semibold mb-4">save life!</h1>
           <p className="text-lg text-gray-700 mb-6">Your donation can save lives. Join us in making a difference.</p>
           <p className="text-lg text-gray-700 mb-6"> <a className="underline decoration-red-500">Give blood  </a> and give the gift of life.

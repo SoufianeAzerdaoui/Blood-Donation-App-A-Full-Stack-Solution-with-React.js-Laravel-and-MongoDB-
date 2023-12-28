@@ -30,7 +30,7 @@ const BloodTypes = () => {
   >
     <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
       <div className='pb-8'>
-        <p className='text-4xl font-bold inline border-b-4 border-red-300'>
+        <p className='text-4xl font-bold   inline border-b-4 border-red-300'>
         Blood types
         </p>
         <p className='py-6'>What are the rarest blood types?
