@@ -2,14 +2,17 @@ import React from 'react';
 import leandingpage from '../../images/leandingpage.png';
 import { Link } from 'react-router-dom';
 import BloodTypes from './BloodTypes';
-import './Leandingpage.css';
-import './Donations.css';
+import '../components/CSS/Leandingpage.css';
+import '../components/CSS/Donations.css';
 import { MDBBtn, MDBContainer } from 'mdb-react-ui-kit';
 import { motion, useScroll } from "framer-motion"
 
 
 const LeandingPage = () => {
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll();
+
+
+
 
   return (
 
@@ -45,8 +48,7 @@ const LeandingPage = () => {
 
   <div className='flex pr-5 space-x-1 justify-center items-center'>
   <span className='sr-only'></span>
-  <div className='animate-custom-bounce' style={{ animationDelay: '-0.3s', animationDuration: '2s' }}>
-    <img src={leandingpage} alt="Blood Donation" className="w-full h-full right-4" />
+  <div className='slider-thumb animate-custom-bounce ' style={{ animationDelay: '-0.3s', animationDuration: '2s' }}>
   </div>
 </div>
 

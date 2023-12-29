@@ -12,7 +12,7 @@ const navigation = [
   { name: 'Acceuil', to: '/' },
   { name: 'Donate Blood', to: '/healthcheck' },
   { name: 'Find a donor', to: '/donations' },
-  { name: 'Process donations', to: '/' },
+  { name: '', to: '/' },
 ]
 
 
@@ -46,6 +46,7 @@ export default function DefaultLayout() {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
+
                       <Link to='/' className="fa-solid fa-droplet text-white text-2xl"></Link>
                     </div>
                     <div className="hidden md:block">

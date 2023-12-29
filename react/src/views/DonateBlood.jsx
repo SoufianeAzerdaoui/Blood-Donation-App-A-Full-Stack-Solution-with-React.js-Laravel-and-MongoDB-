@@ -2,10 +2,19 @@ import React, { useState ,useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import axiosClient from "../axios.js";
 import { useNavigate } from 'react-router-dom';
-import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
+import cities from '../context/Cities.js';
+import Select from "react-select";
+import { Alert } from 'flowbite-react';
+
+
+
 
 function DonateBlood() {
+
+
+
 
   const [city , setCity ] = useState('')
   const [age , setAge] = useState('')
@@ -45,6 +54,14 @@ function DonateBlood() {
   });
 
 
+
+
+  const handleCityChange = (selectedOption) => {
+    setCity(selectedOption ? selectedOption.value : "");
+  };
+
+
+
   const formattedBloodTypes = Object.keys(type)
   .filter((bloodType) => type[bloodType])
   .map((selectedType) => {
@@ -79,6 +96,7 @@ function DonateBlood() {
     };
 
 
+
     const onSubmit = (ev) => {
       ev.preventDefault();
       axiosClient.post('/donateblood', {
@@ -91,20 +109,17 @@ function DonateBlood() {
         description,
       })
         .then(({ data }) => {
-          console.log(data);
           setSuccessAlertContent("Vous êtes Bien Enregistrer  Tu peux aller a l'etape suivant .");
-          setTimeout(() => {
-            setShowSuccessAlert(true);
-            setSuccessAlertContent('');
-            setCaseNumber(2);
-          }, 3000);
           setShowSuccessAlert(true);
+          setTimeout(() => {
+            setShowSuccessAlert(false);
+            setSuccessAlertContent('');
+          }, 3000);
           setFull_name('');
           setEmail('');
           setAge('');
           setCity('');
           setPhone('');
-          navigate ('/confirmationdonation')
 
           setType({
               typeAPositive: false,
@@ -119,6 +134,7 @@ function DonateBlood() {
 
           setDescritpion('');
 
+          navigate('/confirmationdonation');
         })
         .catch((error) => {
           if (error.response && error.response.data && error.response.data.errors) {
@@ -150,45 +166,44 @@ function DonateBlood() {
           <div>
 
           <div className="flex">
-  {showSuccessAlert && (
-    <div className="absolute top-4 right-4">
-      <div className="flex w-96 shadow-lg rounded-lg">
-        <div className="bg-green-600 py-4 px-6 rounded-l-lg flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-white fill-current"
-            viewBox="0 0 16 16"
-            width="20"
-            height="20"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
-            ></path>
-          </svg>
-        </div>
-        <div className="px-4 py-6 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
-          <div>{successAlertContent}</div>
-          <button onClick={() => setShowSuccessAlert(false)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="fill-current text-gray-700"
-              viewBox="0 0 16 16"
-              width="20"
-              height="20"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  )}
+          {showSuccessAlert && (
+            <div className="absolute top-4 right-4">
+              <div className="flex w-96 shadow-lg rounded-lg">
+                <div className="bg-green-600 py-4 px-6 rounded-l-lg flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="text-white fill-current"
+                    viewBox="0 0 16 16"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="px-4 py-6 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
+                  <div>{successAlertContent}</div>
+                  <button onClick={() => setShowSuccessAlert(false)}> {/* <-- Corrected line */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="fill-current text-gray-700"
+                      viewBox="0 0 16 16"
+                      width="20"
+                      height="20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
           </div>
-          {/*steps*/}
 
 
 
@@ -227,8 +242,6 @@ function DonateBlood() {
               />
             </div>
         </div>
-
-
 
             <div className="mt-4">
               <label className="text-sm leading-none text-gray-800">
@@ -271,24 +284,25 @@ function DonateBlood() {
               />
             </div>
 
+          <div className="mt-5">
+            <label className="text-sm leading-none text-gray-900 m-">City</label>
+              <Select
 
-            <div className="mt-5 ">
-
-              <label className="text-sm leading-none text-gray-800 m-">
-                City
-              </label>
-              <input
-                type="text"
-                value={city}
-                onChange = {(ev)=>setCity(ev.target.value)}
-                className="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"
-                placeholder="City"
+                closeMenuOnSelect={true}
+                hideSelectedOptions={false}
+                name="city"
+                value={cities.find((c) => c.region === city)} // Find the corresponding city object
+                onChange={handleCityChange}
+                options={cities.map((city) => ({
+                  label: city.ville,
+                  value: city.ville,
+                }))}
+                className="w-full p-3 mt-3"
+                placeholder="Select City"
               />
-
           </div>
 
           <br/>
-
 
           <div>
           <label className="text-sm leading-none text-gray-800 mb-4 pb-5">

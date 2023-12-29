@@ -1,13 +1,18 @@
 import React from 'react';
 import router from './../router';
 import { Link } from 'react-router-dom';
-import './thanks.css'
+import '../components/CSS/thanks.css';
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
 
 
 const ConfirmationDonation = () => {
+
+  const { width, height } = useWindowSize()
+
   return (
     <div>
-    <div class="area">
+    {/*<div class="area">
 			<ul class="circles">
 				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
 				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
@@ -20,8 +25,14 @@ const ConfirmationDonation = () => {
 				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
 			</ul>
 		</div>
-    <div class="flex items-center justify-center h-screen">
+  */}
 
+    <div class="flex items-center justify-center h-screen">
+    <Confetti
+      width={width}
+      height={height}
+      tweenDuration={5000}
+  />
       <div class="p-1 rounded shadow-lg bg-gradient-to-r from-red-900 via-red-500 to-blue-500">
         <div class="flex flex-col items-center p-4 space-y-2 bg-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="text-green-600 w-28 h-28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">

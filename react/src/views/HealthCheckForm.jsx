@@ -40,7 +40,7 @@ const HealthCheckForm = () => {
       checkboxData.gorge === "non" ||
       checkboxData.goût === "non" ||
       checkboxData.covid === "non" ||
-      checkboxData.maladies === "non" &&
+      checkboxData.maladies === "non" ||
       checkboxData.goût === "non"
     ) {
       setFailureAlertContent("Vous n'êtes pas comptabilisé pour donner du sang.");

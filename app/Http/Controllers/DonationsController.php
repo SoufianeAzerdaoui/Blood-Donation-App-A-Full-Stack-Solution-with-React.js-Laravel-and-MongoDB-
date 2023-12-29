@@ -9,12 +9,15 @@ use Illuminate\Http\Request;
 class DonationsController extends Controller
 {
     public function search(DonationRequest $request)
-    {
-        $city = $request->input('city');
+        {
+            $city = $request->input('city');
 
-        $donations = Donation::where('city', 'like', "%$city%")->get();
+            $donations = Donation::where('city', 'like', "%$city%")
+                ->orderBy('created_at', 'desc')
+                ->get();
 
-        return response()->json($donations);
-    }
+            return response()->json($donations);
+        }
+
 
 }

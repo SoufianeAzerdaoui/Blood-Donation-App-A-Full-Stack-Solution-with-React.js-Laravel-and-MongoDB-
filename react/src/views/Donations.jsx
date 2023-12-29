@@ -4,10 +4,6 @@ import axiosClient from "../axios"
 
 const Donations = () => {
 
-
-
-
-
   const [city, setCity] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [error , setError] = useState({__html: ''});
@@ -18,7 +14,23 @@ const Donations = () => {
 
   const clearChange = () => {
     setCity([]);
+    setSearchResults([]);
   };
+
+
+    const handleCopyClick = async (donation) => {
+      const copyText = `Name: ${donation.full_name}\nEmail: ${donation.email}\nPhone: ${donation.phone}`;
+
+      try {
+        await navigator.clipboard.writeText(copyText);
+        alert("Copied to clipboard!");
+      } catch (err) {
+        console.error("Unable to copy to clipboard.", err);
+        alert("Copy to clipboard failed.");
+      }
+    };
+
+
 
   const handleCitySearch = async (e) => {
     e.preventDefault();
@@ -97,6 +109,7 @@ const Donations = () => {
                   <th className="px-4 py-3">Phone</th>
                   <th className="px-4 py-3">Blood Type</th>
                   <th className="px-4 py-3">Date offer</th>
+                  <th className="px-4 py-3"></th>
                 </tr>
               </thead>
               <tbody className="bg-white">
@@ -110,6 +123,9 @@ const Donations = () => {
                       <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.phone}</td>
                       <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.type}</td>
                       <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.created_at}</td>
+                      <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">
+                      <i  onClick={() => handleCopyClick(donation)} className="fa-solid fa-copy text-2xl"></i>
+                    </td>
                     </tr>
                   ))
                 ) : (
@@ -123,6 +139,7 @@ const Donations = () => {
             </table>
           </div>
         </div>
+
       </section>
     </div>
 
