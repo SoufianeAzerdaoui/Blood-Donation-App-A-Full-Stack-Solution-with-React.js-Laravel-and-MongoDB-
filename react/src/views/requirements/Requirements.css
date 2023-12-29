@@ -1,0 +1,46 @@
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: red;
+    transform-origin: 0%;
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+  }
+
+  ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: aqua; /* Change the color */
+    font-weight: 1000; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+
+.requirements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.container{
+margin-right: 5rem;
+
+}
+
+
+.health1{
+    width: 30%;
+    margin-left: 6rem;
+}
+.health2{
+    width: 30%;
+    margin-left: 6rem;}
+.health3{
+    width: 30%;
+    margin-left: 6rem;}

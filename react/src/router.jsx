@@ -22,6 +22,9 @@ import BloodtypeAB from './components/bloodinformation/BloodtypeAB';
 import BloodtypeABNegative from './components/bloodinformation/BloodtypeABNegative';
 
 
+import Requirements from './views/requirements/Requirements';
+
+
 
 
 
@@ -88,6 +91,10 @@ const router = createBrowserRouter([
       {
         path : '/information/BloodtypeANegative',
         element :<BloodtypeANegative/>,
+      },
+      {
+        path : '/information/RequirementsbyDonationtype',
+        element :<Requirements/>,
       },
 
 

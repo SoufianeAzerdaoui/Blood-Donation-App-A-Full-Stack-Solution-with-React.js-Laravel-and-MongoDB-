@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import typeANetive from '../../../images/anegative.png'
+import '../../components/CSS/BloodTypeA.css';
+import { motion, useScroll } from "framer-motion";
+
 const BloodtypeA = () => {
+  const { scrollYProgress } = useScroll();
+
   return (
     <div>
       <div className=''>
@@ -24,6 +29,10 @@ const BloodtypeA = () => {
       </div>
 
     </header>
+    <motion.div
+    className="progress-bar"
+    style={{ scaleX: scrollYProgress }}
+    />
     <div className='flex'>
         <Link to='/' className='text-red-700 pl-3 pr-1'>
             /Acceuil

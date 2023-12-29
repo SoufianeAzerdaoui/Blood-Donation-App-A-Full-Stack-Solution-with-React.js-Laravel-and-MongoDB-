@@ -12,12 +12,8 @@ const navigation = [
   { name: 'Acceuil', to: '/' },
   { name: 'Donate Blood', to: '/healthcheck' },
   { name: 'Find a donor', to: '/donations' },
-  { name: '', to: '/' },
+  { name: 'Requirements by Donation Type', to: '/information/RequirementsbyDonationtype' },
 ]
-
-
-
-
 
 
 function classNames(...classes) {

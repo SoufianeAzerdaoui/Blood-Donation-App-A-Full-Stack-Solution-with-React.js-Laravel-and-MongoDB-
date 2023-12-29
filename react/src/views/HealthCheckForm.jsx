@@ -48,7 +48,7 @@ const HealthCheckForm = () => {
       setTimeout(() => {
         setShowFailureAlert(false);
         setFailureAlertContent('');
-        navigate('/dashboard');
+        navigate('/information/RequirementsbyDonationtype');
       }, 3000);
     } else {
       setSuccessAlertContent("Vous êtes compatible de donner le sang.");

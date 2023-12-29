@@ -1,11 +1,14 @@
 import React , {useState , useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import typeAgive from '../../../images/aaaaaaaaaaaaaaaaaaaaaaaaagive.png'
-import { motion, useScroll } from "framer-motion"
+import { motion, useScroll } from "framer-motion";
+import '../../components/CSS/BloodTypeA.css';
+
+
 
 const BloodtypeA = () => {
 
-  const { scrollYProgress } = useScroll();
+    const { scrollYProgress } = useScroll();
 
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -14,11 +17,9 @@ const BloodtypeA = () => {
       setIsDropdownOpen(!isDropdownOpen);
     };
 
-
-
-
   return (
     <div>
+
       <div className=''>
 
       <header className="bg-white  shadow">
@@ -29,11 +30,15 @@ const BloodtypeA = () => {
       </div>
     </header>
 
+    <motion.div
+        className="progress-bar"
+        style={{ scaleX: scrollYProgress }}
+        />
 
 
-    <motion.div style={{ scaleX: scrollYProgress }} />
 
-      <div className='flex'>
+
+      <div  className='flex'>
         <Link to='/' className='text-red-700 pl-3 pr-1'>
             /Acceuil
         </Link>

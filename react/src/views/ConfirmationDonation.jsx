@@ -12,20 +12,8 @@ const ConfirmationDonation = () => {
 
   return (
     <div>
-    {/*<div class="area">
-			<ul class="circles">
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold' >Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-				<li className='text-gray-500 text-4xl font-extrabold'>Thank You</li>
-			</ul>
-		</div>
-  */}
+
+
 
     <div class="flex items-center justify-center h-screen">
     <Confetti
