@@ -26,8 +26,10 @@
     "react-phone-number-input": "^3.3.7",
     "react-router-dom": "^6.20.1",
     "react-select": "^5.8.0",
+    "react-spinners": "^0.13.8",
     "react-use": "^17.4.2",
-    "styled-components": "^6.1.6"
+    "styled-components": "^6.1.6",
+    "sweetpagination": "^1.0.15"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

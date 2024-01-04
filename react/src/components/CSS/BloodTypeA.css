@@ -7,3 +7,14 @@
     background: red;
     transform-origin: 0%;
   }
+
+
+
+.dashbord{
+    background: url('../../../images//background.jpg');
+    padding: 8;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}

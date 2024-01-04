@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState , useRef } from 'react';
 import axiosClient from "../axios"
+import Icon from '../context/Animation - 1704398404179.json';
+import Lottie from 'lottie-react'
 
 
 const Donations = () => {
@@ -8,12 +10,14 @@ const Donations = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [error , setError] = useState({__html: ''});
 
+  const animationRef = useRef(null);
+
   const handleCityChange = (e) => {
     setCity(e.target.value);
   };
 
   const clearChange = () => {
-    setCity([]);
+    setCity('');
     setSearchResults([]);
   };
 
@@ -58,7 +62,10 @@ const Donations = () => {
         console.error('Unexpected error:', error);
       }
     }
+    console.log('error:', error);
+
   };
+
 
   return (
     <div>
@@ -105,6 +112,7 @@ const Donations = () => {
                   className="text-md font-semibold tracking-wide text-left text-gray-900 bg-white uppercase "
                 >
                   <th className=" px-4 py-3">FullName</th>
+                  <th className="px-4 py-3">Age</th>
                   <th className="px-4 py-3">City</th>
                   <th className="px-4 py-3">Phone</th>
                   <th className="px-4 py-3">Blood Type</th>
@@ -113,12 +121,14 @@ const Donations = () => {
                 </tr>
               </thead>
               <tbody className="bg-white">
-                {Array.isArray(searchResults) ? (
+                {Array.isArray(searchResults) && searchResults.length>0 ? (
                   searchResults.map((donation) => (
                     <tr className="text-md  tracking-wide text-left text-gray-700 bg-gray-100 uppercase hover:bg-red-100"
                       key={donation._id}
                     >
                       <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.full_name}</td>
+                      <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.age}</td>
+
                       <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.city}</td>
                       <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.phone}</td>
                       <td className="border-b-2 border-dashed  border-gray-300 px-4 py-3">{donation.type}</td>
@@ -130,9 +140,16 @@ const Donations = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="2">{error || 'No results found'}</td>
-                  </tr>
-                )}
+                  <td colSpan="7" className="text-center p-4 pl-[35rem]">
+                    {Array.isArray(searchResults) && searchResults.length === 0
+                      ?                             <Lottie  className="w-[8rem]  " lottieRef={animationRef} animationData= {Icon} />
+
+                      : null
+                    }
+                  </td>
+                </tr>
+
+                              )}
               </tbody>
 
 

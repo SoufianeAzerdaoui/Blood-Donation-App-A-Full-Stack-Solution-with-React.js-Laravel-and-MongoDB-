@@ -1,5 +1,5 @@
 import React from 'react';
-import leandingpage from '../../images/leandingpage.png';
+import leandingpage from '../../images/doneur.jpg';
 import { Link } from 'react-router-dom';
 import BloodTypes from './BloodTypes';
 import '../components/CSS/Leandingpage.css';
@@ -90,8 +90,8 @@ const LeandingPage = () => {
 
       {/* Donation Process */ }
 
-    <div className='pl-[15rem]  pr-[8rem]'>
-        <div className="flex sm:flex-row flex-col  " style={{ paddingTop: '30px'  ,marginTop : "15px"}}>
+    <div className='pl-[15rem]  pr-[10rem] pb-[5rem]'>
+        <div className="flex sm:flex-row flex-col   " style={{ paddingTop: '30px'  ,marginTop : "15px"}}>
           <div className="flex-col">
             <h1 className="text-4xl font-bold mb-4"> Donation process </h1>
             <p className="text-lg text-gray-500 mb-6">
@@ -102,20 +102,17 @@ const LeandingPage = () => {
             </p>
           </div>
         </div>
-      <div className='flex sm:flex-row flex-col  flex-row w-full items-center justify-center min-h-screen ' style={{ paddingTop: '', paddingBottom: '400px' }}>
+      <div className='flex sm:flex-row flex-col    flex-row w-full items-center justify-center min-h-screen ' style={{ paddingTop: '', paddingBottom: '400px' }}>
       {/* First Card */}
-      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-blue-300'>
+      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-blue-300  flex-1'>
         <div className="flex justify-between w-full">
-          <div>
-
-          </div>
         </div>
         <div>
           <div className="font-bold text-3xl">
             Health Check
           </div>
           <div className="font-semibold text-sm text-gray-500 py-4">
-          Our blood donation eligibility form is designed to ensure the safety and well-being of both donors and recipients.
+          Our blood donation eligibility form is designed to ensure the safety and well-being of both donors and recipients.both donors and recipients
           </div>
           <div>
             <Link to='/healthcheck' className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
@@ -133,10 +130,10 @@ const LeandingPage = () => {
       </div>
 
       {/* Second Card */}
-      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-purple-300'>
+      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-purple-300  flex-1' >
         {/* ... (Repeat structure for other cards) */}
         <div>
-          <div className="font-bold text-3xl">
+          <div className="font-bold text-2xl">
             Fill out the form
           </div>
           <div className="font-semibold text-sm text-gray-500 py-4">
@@ -161,7 +158,7 @@ const LeandingPage = () => {
 
 
       {/* Third Card */}
-      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-red-300'>
+      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-red-300  flex-1'>
       <div>
       <div className="font-bold text-3xl">
         Thank you
@@ -189,14 +186,13 @@ const LeandingPage = () => {
 
 
       {/* Fourth Card */}
-      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-green-300'>
+      <div className='flex flex-wrap flex-row sm:flex-col justify-center items-center w-full sm:w-1/4 p-5 bg-white rounded-md shadow-xl border-l-4 border-green-300  flex-1'>
         {/* ... (Repeat structure for other cards) */}
         <div>
 
         <div className="font-semibold text-sm text-gray-500 py-4">
         Your generosity has the power to save lives. Take a  step towards making a positive impact by joining us in our mission to make a difference.
         Give the gift of life by donating blood. Your act of kindness
-        can contribute to a healthier  community.
         </div>
         <div>
           <Link to='/healthcheck' className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">

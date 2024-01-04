@@ -161,8 +161,11 @@ return [
          *
          */
         MongoDB\Laravel\MongoDBServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
 
         /*
+
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -184,6 +187,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

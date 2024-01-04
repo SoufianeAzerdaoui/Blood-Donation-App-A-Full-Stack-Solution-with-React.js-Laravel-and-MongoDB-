@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 10px;
-    background: red;
+    background: rgb(234, 255, 41);
     transform-origin: 0%;
 }
 
@@ -44,3 +44,7 @@ margin-right: 5rem;
 .health3{
     width: 30%;
     margin-left: 6rem;}
+
+.blood-anim{
+    padding-bottom: 10rem;
+}

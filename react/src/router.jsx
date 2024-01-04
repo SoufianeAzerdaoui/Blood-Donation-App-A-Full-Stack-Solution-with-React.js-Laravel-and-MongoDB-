@@ -23,12 +23,14 @@ import BloodtypeABNegative from './components/bloodinformation/BloodtypeABNegati
 
 
 import Requirements from './views/requirements/Requirements';
+import Excel from './components/Excel/Excel';
 
 
 
 
 
 const router = createBrowserRouter([
+
 
   {
 
@@ -96,6 +98,11 @@ const router = createBrowserRouter([
         path : '/information/RequirementsbyDonationtype',
         element :<Requirements/>,
       },
+      {
+        path : '/data_as_table',
+        element : <Excel />
+      },
+
 
 
     ],

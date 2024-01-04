@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,9 @@ Route::get('/test-mongodb-connection', function () {
         echo "Error connecting to MongoDB: " . $e->getMessage();
     }
 });
+
+Route::get('offers/export/', [OfferController::class, 'export']);
+
 
 
 

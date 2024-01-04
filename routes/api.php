@@ -33,6 +33,8 @@ Route::post('/healthcheck', [Health_check::class, 'healthcheck']);
 
 // Route::get('/search/{city}', [DonationsController::class, 'search']);
 Route::get('/search/{city}', [OfferController::class, 'search']);
+Route::get('/data_as_excel', [OfferController::class, 'index']);
 
 
+Route::get('offers/export', [OfferController::class, 'export']);
 

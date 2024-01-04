@@ -1,11 +1,11 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Fragment , useRef } from 'react'
+import { Disclosure, Menu, Transition  } from '@headlessui/react'
 import { Bars3Icon, BellIcon,UserCircleIcon , UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink , Outlet } from 'react-router-dom';
 import { userStateContext } from '../context/ContextProvider';
 import { Link } from 'react-router-dom';
-
-
+import Icon from '../context/8Dloa9OrqP.json';
+import Lottie from 'lottie-react'
 
 
 const navigation = [
@@ -16,6 +16,7 @@ const navigation = [
 ]
 
 
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -24,6 +25,7 @@ export default function DefaultLayout() {
 
   const { currentUser , userToken } =userStateContext();
 
+  const animationRef = useRef(null);
 
   const logout = (ev) => {
     ev.preventDefault();
@@ -43,7 +45,10 @@ export default function DefaultLayout() {
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
 
-                      <Link to='/' className="fa-solid fa-droplet text-white text-2xl"></Link>
+
+                      <Link to='/' className="">
+                            <Lottie  className="w-[5rem]" lottieRef={animationRef} animationData= {Icon} />
+                      </Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">

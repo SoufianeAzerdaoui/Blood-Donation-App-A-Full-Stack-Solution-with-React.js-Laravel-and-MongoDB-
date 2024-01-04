@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState , useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Icon from '../context/bgKKPZoX2J.json';
+import Lottie from 'lottie-react'
+import '../views/requirements/Requirements.css'
+
+
 
 const HealthCheckForm = () => {
 
   const [checkboxData, setCheckboxData] = useState({
-    respiratoires : 'non',
-    fatigue : 'non',
-    fièvre : 'non',
-    gorge : 'non',
-    goût : 'non',
-    covid : 'non',
-    maladies : 'non',
+    respiratoires : 'oui',
+    fatigue : 'oui',
+    fièvre : 'oui',
+    gorge : 'oui',
+    goût : 'oui',
+    covid : 'oui',
+    maladies : 'oui',
   });
   const navigate = useNavigate();
 
@@ -20,6 +25,8 @@ const HealthCheckForm = () => {
   const [failureAlertContent, setFailureAlertContent] = useState("");
 
   const [error , setError] = useState({__html: ''});
+
+  const animationRef = useRef(null);
 
   const handleCheckboxChange = (checkboxName) => {
     setCheckboxData((prevData) => ({
@@ -34,14 +41,14 @@ const HealthCheckForm = () => {
     ev.preventDefault();
 
     if (
-      checkboxData.respiratoires === "non" ||
-      checkboxData.fatigue === "non" ||
-      checkboxData.fièvre === "non" ||
-      checkboxData.gorge === "non" ||
-      checkboxData.goût === "non" ||
-      checkboxData.covid === "non" ||
-      checkboxData.maladies === "non" ||
-      checkboxData.goût === "non"
+      checkboxData.respiratoires === "oui" ||
+      checkboxData.fatigue === "oui" ||
+      checkboxData.fièvre === "oui" ||
+      checkboxData.gorge === "oui" ||
+      checkboxData.goût === "oui" ||
+      checkboxData.covid === "oui" ||
+      checkboxData.maladies === "oui" ||
+      checkboxData.goût === "oui"
     ) {
       setFailureAlertContent("Vous n'êtes pas comptabilisé pour donner du sang.");
       setShowFailureAlert(true);
@@ -82,6 +89,7 @@ const HealthCheckForm = () => {
 
 )}
 
+
 <div className="flex">
   {showSuccessAlert && (
     <div className="absolute top-4 right-4">
@@ -121,7 +129,11 @@ const HealthCheckForm = () => {
     </div>
   )}
 </div>
-  <div className="min-h-screen flex items-center justify-center bg-gray-100 p-0 sm:p-12  ">
+  <div className="min-h-screen  flex items-center justify-center bg-gray-100 p-0 sm:p-12  ">
+
+  <div className="blood-anim ">
+      <Lottie  className="w-[20rem] "  />
+    </div>
 
       <div className="mx-auto max-w-md px-8 py-12 bg-white border-0 shadow-lg sm:rounded-3xl  ">
         <h1 className="text-2xl font-bold mb-8 text-center">Health Check Form</h1>
@@ -133,20 +145,21 @@ const HealthCheckForm = () => {
           </div> )
         }
 
+
         <form
           id="healthCheckForm"
           noValidate
           method='post'
           onSubmit={onSubmit}
         >
+
           <div className="w-{200}  ">
 
 
             <div className="flex items-center justify-content pb-3 pl-8">
               <input
                     type="checkbox"
-                    name='oui'
-                    checked={checkboxData.respiratoires === 'oui'}
+                    name=''
                     onChange={() => handleCheckboxChange('respiratoires')}
                     required
                     className=" h-5 w-5 cursor-pointer appearance-none rounded-md border border-teal-gray-200
@@ -379,6 +392,9 @@ const HealthCheckForm = () => {
             </button>
         </form>
       </div>
+        <div className="blood-anim ">
+      <Lottie  className="w-[25rem] " lottieRef={animationRef} animationData= {Icon} />
+    </div>
 
 
 

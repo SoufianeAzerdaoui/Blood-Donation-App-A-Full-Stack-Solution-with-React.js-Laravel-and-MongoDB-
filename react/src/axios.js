@@ -6,7 +6,7 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use((config) => {
-  const token = ''; //TODO LATER
+  const token = '';
   config.headers.Authorization = `Bearer ${token}`
   return config;
 });

@@ -8,8 +8,7 @@ import { FaPlus, FaMinus } from 'react-icons/fa'; // Import the plus and minus i
 
 
 import health1 from '../../../images/health1.png';
-
-
+import TablesRequiremnts from './TablesRequiremnts';
 
 
 const Requirements = () => {
@@ -183,6 +182,21 @@ const Requirements = () => {
 
 
       </div>
+
+</section>
+<section>
+
+
+    <div class="max-w-screen-md mb-8 lg:mb-16">
+        <h2 class="mb-4 text-3xl tracking-tight font-bold text-sky-400  pt-12 pl-10">Vaccinations
+
+        </h2>
+        <p class="text-gray-500 sm:text-xl dark:text-gray-400 pt-2 pl-12 ">
+          Most vaccines won’t impact your blood donation eligibility. Review the list of common vaccines below to understand whether a recent vaccination requires a waiting period before donating blood.
+        </p>
+    </div>
+
+    <TablesRequiremnts />
 </section>
 
 {/*<div className="container my-24 mx-auto md:px-6  rounded-lg bg-cover ">

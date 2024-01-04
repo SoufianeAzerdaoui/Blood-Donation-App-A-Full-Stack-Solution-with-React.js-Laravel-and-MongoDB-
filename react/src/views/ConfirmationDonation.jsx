@@ -1,14 +1,17 @@
-import React from 'react';
+import React , {useRef} from 'react';
 import router from './../router';
 import { Link } from 'react-router-dom';
 import '../components/CSS/thanks.css';
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
+import Icon from '../context/bgKKPZoX2J.json';
+import Lottie from 'lottie-react'
 
 
 const ConfirmationDonation = () => {
 
   const { width, height } = useWindowSize()
+  const animationRef = useRef(null);
 
   return (
     <div>
