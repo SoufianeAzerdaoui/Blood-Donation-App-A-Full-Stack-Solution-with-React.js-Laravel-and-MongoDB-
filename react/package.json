@@ -28,6 +28,7 @@
     "react-select": "^5.8.0",
     "react-spinners": "^0.13.8",
     "react-use": "^17.4.2",
+    "react-wavify": "^1.10.0",
     "styled-components": "^6.1.6",
     "sweetpagination": "^1.0.15"
   },

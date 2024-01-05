@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Icon from '../context/bgKKPZoX2J.json';
 import Lottie from 'lottie-react'
 import '../views/requirements/Requirements.css'
-
+import AlertQuestion from '../components/alerts/AlertQuestion';
 
 
 const HealthCheckForm = () => {
@@ -37,27 +37,51 @@ const HealthCheckForm = () => {
 
 
 
+  // const onSubmit = (ev) => {
+  //   ev.preventDefault();
+
+  //   if (
+  //     checkboxData.respiratoires === "oui" ||
+  //     checkboxData.fatigue === "oui" ||
+  //     checkboxData.fièvre === "oui" ||
+  //     checkboxData.gorge === "oui" ||
+  //     checkboxData.goût === "oui" ||
+  //     checkboxData.covid === "oui" ||
+  //     checkboxData.maladies === "oui" ||
+  //     checkboxData.goût === "oui"
+  //   ) {
+  //     setFailureAlertContent("Vous n'êtes pas comptabilisé pour donner du sang.");
+  //     setShowFailureAlert(true);
+  //     setTimeout(() => {
+  //       setShowFailureAlert(false);
+  //       setFailureAlertContent('');
+  //       navigate('/information/RequirementsbyDonationtype');
+  //     }, 3000);
+  //   } else {
+  //     setSuccessAlertContent("Vous êtes compatible de donner le sang.");
+  //     setShowSuccessAlert(true);
+  //     setTimeout(() => {
+  //       setShowSuccessAlert(false);
+  //       setSuccessAlertContent("");
+  //       navigate('/donateblood');
+  //     }, 3000);
+  //   }
+
+  // };
+
+
   const onSubmit = (ev) => {
     ev.preventDefault();
 
     if (
-      checkboxData.respiratoires === "oui" ||
-      checkboxData.fatigue === "oui" ||
-      checkboxData.fièvre === "oui" ||
-      checkboxData.gorge === "oui" ||
-      checkboxData.goût === "oui" ||
-      checkboxData.covid === "oui" ||
-      checkboxData.maladies === "oui" ||
-      checkboxData.goût === "oui"
+      checkboxData.respiratoires === "oui" &&
+      checkboxData.fatigue === "oui" &&
+      checkboxData.fièvre === "oui" &&
+      checkboxData.gorge === "oui" &&
+      checkboxData.goût === "oui" &&
+      checkboxData.covid === "oui" &&
+      checkboxData.maladies === "oui"
     ) {
-      setFailureAlertContent("Vous n'êtes pas comptabilisé pour donner du sang.");
-      setShowFailureAlert(true);
-      setTimeout(() => {
-        setShowFailureAlert(false);
-        setFailureAlertContent('');
-        navigate('/information/RequirementsbyDonationtype');
-      }, 3000);
-    } else {
       setSuccessAlertContent("Vous êtes compatible de donner le sang.");
       setShowSuccessAlert(true);
       setTimeout(() => {
@@ -65,9 +89,17 @@ const HealthCheckForm = () => {
         setSuccessAlertContent("");
         navigate('/donateblood');
       }, 3000);
+    } else {
+      setFailureAlertContent("Vous n'êtes pas comptabilisé pour donner du sang.");
+      setShowFailureAlert(true);
+      setTimeout(() => {
+        setShowFailureAlert(false);
+        setFailureAlertContent('');
+        navigate('/information/RequirementsbyDonationtype');
+      }, 3000);
     }
-
   };
+
 
   return (
 
@@ -395,6 +427,11 @@ const HealthCheckForm = () => {
         <div className="blood-anim ">
       <Lottie  className="w-[25rem] " lottieRef={animationRef} animationData= {Icon} />
     </div>
+
+
+
+        <AlertQuestion />
+
 
 
 

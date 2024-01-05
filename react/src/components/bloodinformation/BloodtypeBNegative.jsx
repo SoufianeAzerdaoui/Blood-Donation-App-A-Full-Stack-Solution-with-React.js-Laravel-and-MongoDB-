@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import typeBNegative from '../../../images/negativeofBBBb.png'
+import typeAgive from '../../../images/negativeofBBBb.png'
+import image2 from '../../../images/whocanreceiveblood_chart_bloodtypedistributionchart_outlined.jpg'
 import '../../components/CSS/BloodTypeA.css';
 import { motion, useScroll } from "framer-motion";
 
@@ -11,146 +12,186 @@ const BloodtypeA = () => {
 
   return (
     <div>
-      <div className=''>
-      <header className="bg-white  shadow">
 
-      <div className="mx-auto max-w-7xl px-5 py-4 sm:px-6 lg:px-8">
-        <ul className="flex">
-          <li className="mr-3">
-            <a
-              className="inline-block border
-                border-4 border-red-200 border-b-red-900 rounded py-4
-                px-5 bg-red-500 text-white
-                font-semibold"
-                href="#">
-              Informations About Blood Types
-            </a>
+    <div>
+
+    <div className=''>
+
+    <div className=''>
+
+    <header className="dashbord shadow p-5">
+      <div className=" dmx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 className=" flex items-center justify-center text-3xl font-bold tracking-tight text-white">
+          Blood Type B -
+        </h1>
+      </div>
+    </header>
+
+  <motion.div
+      className="progress-bar"
+      style={{ scaleX: scrollYProgress }}
+      />
+
+
+
+
+    <div  className='flex'>
+      <Link to='/' className='text-red-700 pl-3 pr-1'>
+          /Acceuil
+      </Link>
+      <p className='text-gray-400 '>/B negative blood type </p>
+      </div>
+    </div>
+      <h3 className="flex items-center text-5xl font-bold  pl-10 pt-6">
+          B positive blood type
+
+          <span
+            className="bg-blue-100 text-black-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-red-300 dark:text-black ms-2">
+              B+</span>
+      </h3>
+
+      <div  className='pl-10 pt-8'>
+        <p className='py-3'>
+          Your blood type is determined by genes inherited from your parents
+        </p>
+        <p className='py-3'>
+          Whether your blood type is rare, common or somewhere in between, your donations are vital in helping save and improve lives.
+        </p>
+
+        You can <Link to="/healthcheck"  className='text-red-700 py-3'>register online to give blood. </Link>
+
+
+
+
+        <h3
+          className=''
+          style={{ paddingTop: '', paddingBottom: '' }}
+        >
+
+        </h3>
+
+        <h2 class="mb-4 pt-10 text-5xl font-bold leading-none tracking-tight  md:text-5xl lg:text-6xl ">How  <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">rare</mark> is A positive blood ?</h2>
+        <p class="text-lg font-normal text-black lg:text-xl dark:text-gray-400">
+
+        </p>
+
+        <div className='grid sm:grid-cols-2 md:grid-cols-2 gap-8 sm:px-5 items-center pl-[15rem]  '>
+        <div className=''>
+        <h1 className='text-gray-600 font-bold text-2xl'>
+        Blood Type Rarity
+
+
+        </h1>
+        <p className='text-gray-500 pt-5  font-semibold text-m'>
+        The most common blood types are type O+ (39% if the U.S. population) and type A+ (30% of the population). But certain blood types are extremely rare!
+
+        </p>
+        <ul class="list-disc list-inside pl-10 pt-5">
+          <li class="mb-2">1% of the population has AB- blood type
+          </li>
+          <li class="mb-2">2% of the population has B- blood type.
+          </li>
+          <li class="mb-2">6% of the population has A- blood type
+          </li>
+          <li class="mb-2">9% of the population has O- blood type. The universal type that can be transfused for any need.
+
           </li>
         </ul>
 
       </div>
+<div className='pl-5 w-full  pt-5 w-[35rem] '><img
+        src={image2}
+        alt="typeA"
+        className='rounded-md duration-200 hover:scale-105   '
+      />
+</div>
 
-    </header>
+        </div>
 
-    <motion.div
-    className="progress-bar"
-    style={{ scaleX: scrollYProgress }}
-    />
+
+        <div className='grid sm:grid-cols-2 md:grid-cols-2 gap-8 sm:px-5 items-center pl-[10rem]  pb-[5rem] '>
+        <div className='pl-5 w-full  pt-5  w-[26rem]  pt-[10rem]'><img
+        src={typeAgive}
+        alt="typeA"
+        className='rounded-md duration-200 hover:scale-105   '
+      />
+</div>
+
+        <div className='pt-[10rem]'>
+        <h1 className='text-gray-600 font-bold text-2xl'>
+        Who can receiveA positive blood?
+
+
+
+        </h1>
+        <p className='text-gray-500 pt-5  font-semibold text-m'>
+          B positive donors play a vital role by contributing red blood cells, an essential component for various medical treatments and surgeries. Your generosity provides a lifeline for patients facing challenges, and your commitment to blood donation reflects a spirit of empathy that resonates with those you help.
+          AB positive individuals, often referred to as universal plasma donors, have a unique ability to donate red blood cells, plasma, and platelets. This versatility makes you a valuable source for medical treatments, especially for patients with diverse needs.
+        </p>
+        <ul class="list-disc list-inside pl-10 pt-5">
+          <li class="mb-2 font-bold">B negative people</li>
+          <li class="mb-2 font-bold">B positive people</li>
+          <li class="mb-2 font-bold">AB negative people</li>
+          <li class="mb-2 font-bold">AB positive  people</li>
+
+        </ul>
+
+      </div>
+
+
+        </div>
 
 
       </div>
-      <div className='flex'>
-          <Link to='/' className='text-red-700 pl-3 pr-1'>
-            /Acceuil
-          </Link>
-          <p className='text-gray-400'>/B negative blood type </p>
-      </div>
-        <h3 className="flex items-center text-5xl font-semibold  pl-10 pt-6">
-          B negative blood type
-
-            <span
-              className="bg-blue-100 text-black-800 text-2xl font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-red-300 dark:text-black ms-2">
-                B-</span>
-        </h3>
-
-        <div  className='pl-10 pt-8'>
-          <p className='py-3'>
-            Your blood type is determined by genes inherited from your parents
-          </p>
-          <p className='py-3'>
-            Whether your blood type is rare, common or somewhere in between, your donations are vital in helping save and improve lives.
-          </p>
-
-          You can <Link to="/healthcheck"  className='text-red-700 py-3'>register online to give blood. </Link>
 
 
 
 
-          <h3
-            className=''
-            style={{ paddingTop: '', paddingBottom: '' }}
-          >
+        <div className='bg-white ' >
 
-          </h3>
+          <div className='grid sm:grid-cols-2 md:grid-cols-2 gap-8 sm:px-5 items-center '>
 
-          <h2 class="mb-4 pt-10 text-4xl font-semibold leading-none tracking-tight  md:text-5xl lg:text-6xl ">How  <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">rare</mark> is B negative blood ?</h2>
-          <p class="text-lg font-normal text-black lg:text-xl dark:text-gray-400">
+            <p className='font-bold text-2xl text-gray-800 pt-[5rem] pl-[8rem] '>
+            Ready to schedule your donation?
 
-          </p>
+            </p>
+            <div className='pt-[5rem] pl-[8rem]s'>
 
-          <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5 items-center '>
+            <Link to='/healthcheck' className="inline-flex items-center px-[6rem]  py-3 text-white font-bold text-2xl  bg-red-700 rounded-md hover:bg-orange-600 hover:text-white">
+              MAKE APPOINTMENT NOW
+            </Link>
 
-            <p className='text-gray-500 '>
-            B negative blood is one of the rarest blood types as just 2% of our blood donors have it.
 
-            In comparison, 36% of donors have O positive blood which is the most common type.
 
+            </div>
+<p className='text-gray-500 italic pl-[8rem] pt-[10px] '>
+            *Not all donation types are available at all locations. Final eligibility for any blood donation is determined on the day of donation.
 
 
             </p>
-            <img
-              src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvMzQwLWZlbGl4MTQwNy5qcGc.jpg"
-              alt="typeA"
-              className='rounded-md duration-200 hover:scale-105'
-            />
+
+          </div>
+          <div className='grid sm:grid-cols-2 md:grid-cols-2 gap-8 sm:px-5 items-center '>
+
+            <p className='font-bold text-2xl text-gray-800 pt-[5rem] pl-[8rem] '>
+
+            </p>
+            <div className=''>
+
+
+            </div>
+
+
           </div>
 
+
         </div>
 
-        <div>
 
-            <h3
-              class="mb-4  pt-12  text-2xl font-semibold leading-none tracking-tight
-                md:text-5xl lg:text-6xl "
-            >
-            Who can receive
+  </div>
+  </div>
 
-              <span
-                class="underline underline-offset-3 decoration-8
-                decoration-blue-400 dark:decoration-blue-600 pl-1"
-              >
-              B Nagative blood?
-              </span>
-            </h3>
-            <p class="text-lg font-bold text-gray-700 lg:text-xl dark:text-gray-700 pl-6 pt-5">
-            Group B and AB people
-
-
-            </p>
-            <p class="text-lg font-bold text-gray-700 lg:text-xl dark:text-gray-700 pl-6 pt-5">
-            B negative blood can help people who are:
-
-            <ul class="max-w-md ml-12 space-y-1 text-gray-700  pt-5 list-disc dark:text-gray-500">
-            <li>
-            B negative
-            </li>
-            <li>
-                B positive
-
-            </li>
-            <li>
-            AB negative
-
-            </li>
-            <li>
-            AB positive
-
-            </li>
-          </ul>
-
-            </p>
-
-            <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5 items-center'>
-            <img
-            src={typeBNegative}
-            alt="agivetoab"
-            className=' rounded-md duration-200 hover:scale-105  pl-10 pt-8  '
-
-            />
-            </div>
-        </div>
-
-    </div>
+</div>
   );
 }
 

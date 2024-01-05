@@ -6,6 +6,7 @@ import { userStateContext } from '../context/ContextProvider';
 import { Link } from 'react-router-dom';
 import Icon from '../context/8Dloa9OrqP.json';
 import Lottie from 'lottie-react'
+import Wave from 'react-wavify'
 
 
 const navigation = [
@@ -13,6 +14,7 @@ const navigation = [
   { name: 'Donate Blood', to: '/healthcheck' },
   { name: 'Find a donor', to: '/donations' },
   { name: 'Requirements by Donation Type', to: '/information/RequirementsbyDonationtype' },
+  { name: 'First time to donate', to: '/learn/first-time-give-blood' },
 ]
 
 
@@ -174,7 +176,11 @@ export default function DefaultLayout() {
         <Outlet />
 
 
-      </div>
+
+
+
+
+        </div>
     </>
   )
 }

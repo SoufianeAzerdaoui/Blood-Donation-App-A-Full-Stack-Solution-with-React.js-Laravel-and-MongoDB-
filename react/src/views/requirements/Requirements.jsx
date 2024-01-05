@@ -9,6 +9,7 @@ import { FaPlus, FaMinus } from 'react-icons/fa'; // Import the plus and minus i
 
 import health1 from '../../../images/health1.png';
 import TablesRequiremnts from './TablesRequiremnts';
+import Wavey from './../Wave';
 
 
 const Requirements = () => {
@@ -197,6 +198,8 @@ const Requirements = () => {
     </div>
 
     <TablesRequiremnts />
+
+    <Wavey />
 </section>
 
 {/*<div className="container my-24 mx-auto md:px-6  rounded-lg bg-cover ">

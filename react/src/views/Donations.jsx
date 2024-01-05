@@ -1,6 +1,6 @@
 import React, { useState , useRef } from 'react';
 import axiosClient from "../axios"
-import Icon from '../context/Animation - 1704398404179.json';
+import Icon from '../context/Animation - 1704418990187.json';
 import Lottie from 'lottie-react'
 
 
@@ -142,7 +142,11 @@ const Donations = () => {
                   <tr>
                   <td colSpan="7" className="text-center p-4 pl-[35rem]">
                     {Array.isArray(searchResults) && searchResults.length === 0
-                      ?                             <Lottie  className="w-[8rem]  " lottieRef={animationRef} animationData= {Icon} />
+                      ?
+
+                        <Lottie  className="w-[20rem] " lottieRef={animationRef} animationData= {Icon}
+
+                      />
 
                       : null
                     }

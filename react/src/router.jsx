@@ -24,6 +24,7 @@ import BloodtypeABNegative from './components/bloodinformation/BloodtypeABNegati
 
 import Requirements from './views/requirements/Requirements';
 import Excel from './components/Excel/Excel';
+import FirstTime from './components/bloodinformation/FirstTime/FirstTime';
 
 
 
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path : '/data_as_table',
         element : <Excel />
+      },
+      {
+        path : '/learn/first-time-give-blood',
+        element : <FirstTime />
       },
 
 

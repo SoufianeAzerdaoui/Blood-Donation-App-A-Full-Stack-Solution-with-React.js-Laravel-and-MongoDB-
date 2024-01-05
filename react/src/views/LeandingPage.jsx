@@ -5,7 +5,10 @@ import BloodTypes from './BloodTypes';
 import '../components/CSS/Leandingpage.css';
 import '../components/CSS/Donations.css';
 import { MDBBtn, MDBContainer } from 'mdb-react-ui-kit';
-import { motion, useScroll } from "framer-motion"
+import { motion, useScroll } from "framer-motion";
+import Footer from '../components/Footer/Footer';
+
+
 
 
 const LeandingPage = () => {
@@ -13,15 +16,14 @@ const LeandingPage = () => {
 
 
 
-
   return (
 
     <div class=" ">
 
-    <motion.path
-        d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
-        style={{ pathLength: scrollYProgress }}
-    />
+    <motion.div
+    className="progress-bar"
+    style={{ scaleX: scrollYProgress }}
+  />
 
   <div className='' >
 
@@ -42,9 +44,7 @@ const LeandingPage = () => {
 
         </div>
 
-        {/*<div className="image-section flex-1 pr-5 animate-custom-bounce" style={{ animationDuration: '1.5s' }}>
-            <img src={leandingpage} alt="Blood Donation" className="w-full h-full right-4" />
-  </div>*/}
+
 
   <div className='flex pr-5 space-x-1 justify-center items-center'>
   <span className='sr-only'></span>
@@ -223,7 +223,14 @@ const LeandingPage = () => {
 
       <div className='pt-[80px]'>
       <BloodTypes />
+
     </div>
+    <footer className='pt-[5rem]'>
+
+<Footer />
+    </footer>
+
+
 
 
     </div>
